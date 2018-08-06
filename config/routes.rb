@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :guests
   devise_for :superadmins
   devise_for :siperadmins
   devise_for :super_admins
