@@ -44,30 +44,32 @@ ActiveRecord::Schema.define(version: 20180806135739) do
 
   create_table "expense_services", force: :cascade do |t|
     t.string "name"
-    t.money "cost", scale: 2
+    t.float "cost"
     t.datetime "paydeadline"
-    t.money "max_cost", scale: 2
-    t.money "min_cost", scale: 2
-    t.money "mid_cost", scale: 2
-    t.integer "max_amount"
-    t.integer "mid_amount"
-    t.integer "min_amount"
-    t.integer "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.float "max_cost"
+    t.float "min_cost"
+    t.float "mid_cost"
+    t.float "max_amount"
+    t.float "mid_amount"
+    t.float "min_amount"
+    t.float "amount"
   end
 
   create_table "expense_stuffs", force: :cascade do |t|
     t.string "name"
-    t.money "cost", scale: 2
+    t.float "cost"
     t.datetime "paydeadline"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.money "max_cost", scale: 2
-    t.money "min_cost", scale: 2
-    t.money "mid_cost", scale: 2
-    t.integer "max_amount"
-    t.integer "mid_amount"
-    t.integer "min_amount"
-    t.integer "amount"
+    t.float "max_cost"
+    t.float "min_cost"
+    t.float "mid_cost"
+    t.float "max_amount"
+    t.float "mid_amount"
+    t.float "min_amount"
+    t.float "amount"
   end
 
   create_table "guests", force: :cascade do |t|
