@@ -32,8 +32,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'devise'
-gem 'rails_admin', '~> 1.3'
-gem 'money-rails', '~>1'
+
 
 
 group :development, :test do
