@@ -7,12 +7,12 @@ def index
 end
 
 def new
-  # binding.pry
   @expense_service = current_admin_user.expense_services.build
 end
 
 def create
-  @expense_service = current_admin_user.expense_service.build(expense_services_params)
+  @expense_service = current_admin_user.expense_services.build(expense_services_params)
+  @expense_service.save
 end
 
 def update
