@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180807150851) do
+ActiveRecord::Schema.define(version: 20180820085106) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,8 @@ ActiveRecord::Schema.define(version: 20180807150851) do
     t.float "mid_amount"
     t.float "min_amount"
     t.float "amount"
+    t.bigint "admin_users_id"
+    t.index ["admin_users_id"], name: "index_expense_services_on_admin_users_id"
   end
 
   create_table "expense_stuffs", force: :cascade do |t|
@@ -81,6 +83,8 @@ ActiveRecord::Schema.define(version: 20180807150851) do
     t.float "mid_amount"
     t.float "min_amount"
     t.float "amount"
+    t.bigint "admin_users_id"
+    t.index ["admin_users_id"], name: "index_expense_stuffs_on_admin_users_id"
   end
 
   create_table "guests", force: :cascade do |t|
@@ -154,6 +158,8 @@ ActiveRecord::Schema.define(version: 20180807150851) do
     t.index ["reset_password_token"], name: "index_user_admins_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "expense_services", "admin_users", column: "admin_users_id"
+  add_foreign_key "expense_stuffs", "admin_users", column: "admin_users_id"
   add_foreign_key "participations", "events"
   add_foreign_key "participations", "guests"
 end
