@@ -1,17 +1,18 @@
 class ExpenseServicesController < ApplicationController
 
-before_action :authenticate_user!
+before_action :authenticate_admin_user!
 
 def index
-  @expense_services = current_user.expense_services.all
+  @expense_services = current_admin_user.expense_services.all
 end
 
 def new
-  @expense_service = current_user.expense_services.build
+  # binding.pry
+  @expense_service = current_admin_user.expense_services.build
 end
 
 def create
-  @expense_service = current_user.expense_service.build(expense_services_params)
+  @expense_service = current_admin_user.expense_service.build(expense_services_params)
 end
 
 def update
