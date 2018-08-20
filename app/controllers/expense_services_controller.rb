@@ -16,11 +16,14 @@ def create
 end
 
 def update
-
+  @expense_service = current_admmin_user.expense_services.find(params[:id])
+  @expense_service.update_attributes(expense_services_params)
+  flash[:success] = "Expense service updated"
 end
 
-def delete
-
+def destroy
+  @expense_service = ExpenseService.find(params[:id])
+  @expense_service.destroy
 end
 
 private
