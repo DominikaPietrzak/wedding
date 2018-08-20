@@ -1,0 +1,2 @@
+class ExpenseServicesCostSumController < ApplicationController
+end
