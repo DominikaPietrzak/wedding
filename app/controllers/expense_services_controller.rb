@@ -16,7 +16,7 @@ def create
 end
 
 def update
-  @expense_service = current_admmin_user.expense_services.find(params[:id])
+  @expense_service = current_admin_user.expense_services.find(params[:id])
   @expense_service.update_attributes(expense_services_params)
   flash[:success] = "Expense service updated"
 end

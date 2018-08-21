@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180820085106) do
+ActiveRecord::Schema.define(version: 20180821090617) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -102,11 +102,8 @@ ActiveRecord::Schema.define(version: 20180820085106) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.string "surname"
-    t.string "telephone"
-    t.string "street"
-    t.string "home_number"
-    t.string "town"
-    t.string "country"
+    t.bigint "admin_user_id"
+    t.index ["admin_user_id"], name: "index_guests_on_admin_user_id"
     t.index ["email"], name: "index_guests_on_email", unique: true
     t.index ["reset_password_token"], name: "index_guests_on_reset_password_token", unique: true
   end
@@ -160,6 +157,7 @@ ActiveRecord::Schema.define(version: 20180820085106) do
 
   add_foreign_key "expense_services", "admin_users"
   add_foreign_key "expense_stuffs", "admin_users"
+  add_foreign_key "guests", "admin_users"
   add_foreign_key "participations", "events"
   add_foreign_key "participations", "guests"
 end

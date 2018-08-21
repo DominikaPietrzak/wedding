@@ -15,7 +15,7 @@ class ExpenseStuffsController < ApplicationController
   end
 
   def update
-    @expense_stuff = current_admmin_user.expense_stuff.find(params[:id])
+    @expense_stuff = current_admin_user.expense_stuff.find(params[:id])
     @expense_stuff.update_attributes(expense_stuff_params)
     flash[:success] = "Expense stuff updated"
   end
