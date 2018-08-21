@@ -1,5 +1,5 @@
 class Guest < ApplicationRecord
-  belongs_to :admin_user
+  belongs_to :admin_user , optional: true
   has_one :guest_adress
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
