@@ -4,6 +4,8 @@ class AdminUser < ApplicationRecord
   has_many :expense_services
   has_many :expense_stuffs
   has_many :guests
+  has_many :event_attendances
+  has_many :events
 
   devise :database_authenticatable,
          :recoverable, :rememberable, :trackable, :validatable
