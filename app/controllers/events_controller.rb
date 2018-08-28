@@ -12,6 +12,7 @@ class EventsController < ApplicationController
 
   def create
     @event = current_admin_user.expense_stuffs.build
+    @event.save
   end
 
   def update
