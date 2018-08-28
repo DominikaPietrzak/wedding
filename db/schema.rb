@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180821103424) do
+ActiveRecord::Schema.define(version: 20180828123703) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,15 @@ ActiveRecord::Schema.define(version: 20180821103424) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+  end
+
+  create_table "event_attendances", force: :cascade do |t|
+    t.bigint "guest_id"
+    t.bigint "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_event_attendances_on_event_id"
+    t.index ["guest_id"], name: "index_event_attendances_on_guest_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -166,6 +175,8 @@ ActiveRecord::Schema.define(version: 20180821103424) do
     t.index ["reset_password_token"], name: "index_user_admins_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "event_attendances", "events"
+  add_foreign_key "event_attendances", "guests"
   add_foreign_key "expense_services", "admin_users"
   add_foreign_key "expense_stuffs", "admin_users"
   add_foreign_key "guests", "admin_users"

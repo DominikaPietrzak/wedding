@@ -1,5 +1,11 @@
 class GuestListsController < ApplicationController
+
+  before_action :authenticate_admin_user!
+  
   def index
-    @guests = Guest.all
   end
+
+  def new
+  end
+
 end
