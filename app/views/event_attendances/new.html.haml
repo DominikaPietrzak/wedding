@@ -1,0 +1,3 @@
+= form_for @event
+= f.label :event.attendance
+        <%= f.collection_select :comic_book_id, @comics, :id,:title, include_blank: true %>
