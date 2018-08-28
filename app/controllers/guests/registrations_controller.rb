@@ -9,6 +9,9 @@ class Guests::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
+  def index
+    @guests = Guests.all
+  end
   # POST /resource
    def create
      password_length = 6
