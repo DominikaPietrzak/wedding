@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20180828150837) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "admin_user_id"
-    t.boolean "status"
+    t.integer "status"
     t.index ["admin_user_id"], name: "index_event_attendances_on_admin_user_id"
     t.index ["event_id"], name: "index_event_attendances_on_event_id"
     t.index ["guest_id"], name: "index_event_attendances_on_guest_id"
