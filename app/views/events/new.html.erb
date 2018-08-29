@@ -1,0 +1,24 @@
+<%= form_for @event do |f| %>
+  <div class="container">
+      <div class="row">
+          <div class='col-sm-6'>
+              <div class="form-group">
+                  <div class='input-group date' id='datetimepicker1'>
+                      <%= f.label :event_date, "DATE & TIME" %>
+                      <%= f.text_field :event_date, :class => "form-control"%>
+                      <span class="input-group-addon">
+                          <span class="glyphicon glyphicon-time"></span>
+                      </span>
+                  </div>
+              </div>
+          </div>
+          <script type="text/javascript">
+              $(function () {
+                  $('#datetimepicker1').datetimepicker({
+                      format: 'LT'
+                  });
+              });
+          </script>
+      </div>
+  </div>
+<% end %>
