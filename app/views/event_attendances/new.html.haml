@@ -1,5 +1,7 @@
 test new
 = form_for @event_attendance do |f|
   = f.label :event_attendance
-  = f.collection_select :event_id, @events, :id,:status, include_blank: true
+  = f.select :status,  EventAttendance.statuses.keys.map {|w| [w.humanize, w]}
   = f.submit 'Save'
+  - @events.each do |event|
+    = event.name
