@@ -1,10 +1,19 @@
 = form_for @event do |f|
-  = f.label :name
-  = f.text_field :name
-
-  = f.label :event_date
-  = f.text_field :event_date
-  = f.submit 'Save'
-
-= month_calendar do |date|
-  = date
+  %div.container
+    %div.row
+      %div.col-sm-6
+        = f.label :name
+        = f.text_field :name
+      %div.form-group
+        = f.label :event_date
+          %div.input-group.date#datetimepicker3
+            = f.text_field :event_date , :class => "form-control"
+            %span.input-group-addon
+              %span.glyphicon.glyphicon-calendar
+                :javascript
+                  $(function () {
+                      $('#datetimepicker3').datetimepicker({
+                        format: 'DD-MM-YYYY hh:mm'
+                      });
+                  });
+        = f.submit 'Save'
