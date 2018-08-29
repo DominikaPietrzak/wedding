@@ -2,23 +2,30 @@
   <div class="container">
       <div class="row">
           <div class='col-sm-6'>
+            <div>
+              <%= f.label :name %>
+              <%= f.text_field :name %>
+            </div>
               <div class="form-group">
-                  <div class='input-group date' id='datetimepicker1'>
-                      <%= f.label :event_date, "DATE & TIME" %>
+                <%= f.label :date %>
+                  <div class='input-group date' id='datetimepicker3'>
                       <%= f.text_field :event_date, :class => "form-control"%>
                       <span class="input-group-addon">
-                          <span class="glyphicon glyphicon-time"></span>
+                          <span class="glyphicon glyphicon-calendar"></span>
                       </span>
                   </div>
+
               </div>
           </div>
           <script type="text/javascript">
               $(function () {
-                  $('#datetimepicker1').datetimepicker({
-                      format: 'LT'
+                  $('#datetimepicker3').datetimepicker({
+                    format: 'DD-MM-YYYY hh:mm'
                   });
               });
           </script>
       </div>
+        <%= f.submit %>
   </div>
+
 <% end %>

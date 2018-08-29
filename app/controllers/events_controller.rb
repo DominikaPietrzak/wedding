@@ -11,8 +11,9 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = current_admin_user.expense_stuffs.build
+    @event = current_admin_user.events.build(event_params)
     @event.save
+
   end
 
   def update
