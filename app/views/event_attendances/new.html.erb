@@ -2,27 +2,34 @@
 <table class="table">
   <thead>
 
-      <%= form_for @event_attendance do |f| %>
-
-
+    <%= form_for @event_attendance do |f| %>
         <tr>
           <th scope="col">Imię </th>
           <th scope="col">Nazwisko </th>
           <% @events.each do |event| %>
             <th scope="col"> <%=  event.name %>  </th>
           <% end %>
+          <th scope ="col"> Save </th>
         </tr>
-
-
   </thead>
 <tbody>
-  <tr>
-    <td>Joanna</td>
-    <td>Nowak</td>
-    <% @events.each do |event| %>
-     <td> <%= f.select :status,  EventAttendance.statuses.keys.map {|w| [w.humanize, w]} %> </td>
+
+    <% @guests.each do |g| %>
+      <tr>
+      <td> <%= g.name %> </td>
+      <td> <%= g.surname %></td>
+      <%= f.hidden_field :guest_id,value: g.id %>
+
+      <% @events.each do |event| %>
+        <td> <%= f.select :status,  EventAttendance.statuses.keys.map {|w| [w.humanize, w]} %> </td>
+            <%= f.hidden_field :event_id, value: event.id %>
+            <td> <%= f.submit %></td>
+      <% end %>
+
+      </tr>
      <% end %>
+
     <% end %>
-  </tr>
+
 </tbody>
 </table>
