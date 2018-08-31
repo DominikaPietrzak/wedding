@@ -1,5 +1,5 @@
 class Event < ApplicationRecord
-  has_many :event_attendances
+  has_many :event_attendances, dependent: :destroy
   belongs_to :admin_user
 
   def self.create_event_attendance(event,admin)
