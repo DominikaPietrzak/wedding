@@ -17,6 +17,7 @@ class Guests::RegistrationsController < Devise::RegistrationsController
      password_length = 6
      password = Devise.friendly_token.first(password_length)
      @guest = Guest.create!(:email => params[:guest][:email], :password => password, :password_confirmation => password, :name => params[:guest][:name], :surname => params[:guest][:surname], :admin_user_id => current_admin_user.id )
+     Guest.create_event_attendance(@guest,current_admin_user)
    end
 
   # GET /resource/edit

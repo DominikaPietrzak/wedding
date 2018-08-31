@@ -8,10 +8,22 @@ class EventAttendancesController < ApplicationController
   end
 
   def create
-    
-    @event_attendance = current_admin_user.event_attendances.build(event_attendance_params)
 
+    @event_attendance = current_admin_user.event_attendances.build(event_attendance_params)
     @event_attendance.save
+  end
+
+  def update
+    @events = current_admin_user.events.all
+    @guests = current_admin_user.guests.all
+    @event_attendance = current_admin_user.event_attendances.find(params[:id])
+    @event_attendance.update_attributes(event_attendance_params)
+  end
+
+  def index
+    @events_attendance = EventAttendance.all
+    @events = current_admin_user.events.all
+    @guests = current_admin_user.guests.all
   end
 
   def event_attendance_params
