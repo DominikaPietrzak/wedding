@@ -1,0 +1,27 @@
+<table class="table">
+  <thead>
+        <tr>
+          <th scope="col">Imię </th>
+          <th scope="col">Nazwisko </th>
+          <% @eventsname.each do |event| %>
+            <th scope="col"> <%=  event.name %>  </th>
+          <% end %>
+          <th scope ="col"> Save </th>
+        </tr>
+  </thead>
+  <tbody>
+
+      <% @guests.each do |guest| %>
+        <% @event_attendances = guest.event_attendances %>
+        <% @event_attendances.each do |event_attendance| %>
+          <tr>
+            <td> <%= guest.name %> </td>
+            <td> <%= guest.surname %> </td>
+            <%= form_for event_attendance do |f| %>
+              <td>  <%= f.select "event_attendance", "status" ["yes", "no"], :selected => "no" %>   </td>
+            <% end %>
+          </tr>
+        <% end %>
+      <% end %>
+  </tbody>
+</table>

@@ -17,14 +17,18 @@
 #     admin_user_id: 1
 #     }])
 # end
-#seed db: with Events
-Event.create([{
-    name: "wesele",
-    event_date: Faker::Time.between(DateTime.now - 1, DateTime.now),
-    admin_user_id: 1
-  }])
-Event.create([{
-  name: "ślub",
-  event_date: Faker::Time.between(DateTime.now - 1, DateTime.now),
-  admin_user_id: 1
-  }])
+#
+# #seed db with events
+# Event.create([{
+#     name: "wesele",
+#     event_date: Faker::Time.between(DateTime.now - 1, DateTime.now),
+#     admin_user_id: 1
+#   }])
+#
+# Event.create([{
+#   name: "ślub",
+#   event_date: Faker::Time.between(DateTime.now - 1, DateTime.now),
+#   admin_user_id: 1
+#   }])
+
+EventAttendanceStatus.create([{status: 'no'}, {status: 'yes'}])

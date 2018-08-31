@@ -1,11 +1,6 @@
 class EventAttendancesController < ApplicationController
 
   before_action :authenticate_admin_user!
-  def new
-    @event_attendance = current_admin_user.event_attendances.build
-    @events = current_admin_user.events.all
-    @guests = current_admin_user.guests.all
-  end
 
   def create
 
@@ -24,6 +19,17 @@ class EventAttendancesController < ApplicationController
     @events_attendance = EventAttendance.all
     @events = current_admin_user.events.all
     @guests = current_admin_user.guests.all
+  end
+
+  def update_event_attendance
+
+    @event_attendances = EventAttendance.all
+    @guests = Guest.all
+    @eventsname = Event.all
+  end
+
+
+  def show
   end
 
   def event_attendance_params

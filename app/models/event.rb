@@ -12,4 +12,5 @@ class Event < ApplicationRecord
        @event_attendance.save
      end
    end
+
 end

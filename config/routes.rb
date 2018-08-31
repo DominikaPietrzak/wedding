@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   get 'expense/services', to: 'expense_services#index'
   get "/pages/:page" => "presentation_pages#show"
   root "presentation_pages#show", page: "welcome_page"
+  get "/update_event_attendance" => 'event_attendances#update_event_attendance'
 end
