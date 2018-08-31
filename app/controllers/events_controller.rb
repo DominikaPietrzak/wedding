@@ -13,7 +13,7 @@ class EventsController < ApplicationController
   def create
     @event = current_admin_user.events.build(event_params)
     @event.save
-
+    Event.create_event_attendance(@event,current_admin_user)
   end
 
   def update
