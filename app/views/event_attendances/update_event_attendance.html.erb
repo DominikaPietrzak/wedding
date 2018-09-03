@@ -3,27 +3,35 @@
         <tr>
           <th scope="col">Imię </th>
           <th scope="col">Nazwisko </th>
-          <% @eventsname.each do |event| %>
+          <% @events.each do |event| %>
             <th scope="col"> <%=  event.name %>  </th>
+
+            <th scope ="col"> Save </th>
           <% end %>
-          <th scope ="col"> Save </th>
         </tr>
   </thead>
   <tbody>
       <% @guests.each do |guest| %>
-        <% @event_attendances = guest.event_attendances %>
+      <tr>
+        <td> <%= guest.name %> </td>
+        <td> <%= guest.surname %> </td>
+        <% @events.each do |event| %>
 
-          <tr>
-            <td> <%= guest.name %> </td>
-            <td> <%= guest.surname %> </td>
-            <%= form_tag edit_event_attendance_path do |f| %>
-            <% @event_attendances.each do |event_attendance| %>
-              <% fields_for "event_attendances[]", event_attendance do |ea| %>
-              <td> <%= ea.collection_select :event_attendance_statuses_id, event_attendance ,:id, :eastatus %>  </td>
-                <% end %>
-            <% end %>
+              <% @event_attendance = EventAttendance.find_by(guest_id: guest.id, event_id: event.id)%>
+
+              <% @event_attendance_statuses = EventAttendanceStatus.all %>
+              <%= form_for @event_attendance, url: edit_event_attendance_path(@event_attendance) do |f| %>
+                <%= f.hidden_field :event_attendance_id, value: @event_attendance.id %>
+                <td><%= f.collection_select :event_attendance_status_id, @event_attendance_statuses ,:id, :eastatus , include_blank: false %> </td>
+                <td><%= f.submit "save" %> </td>
+                <%= f.hidden_field :event_attendance_id, value: @event_attendance.id %>
+              <% end %>
+
+
+        <% end %>
           </tr>
-1         <% end %>
-      <% end %>
+      <%end %>
+1
+
   </tbody>
 </table>

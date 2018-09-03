@@ -24,9 +24,8 @@ class EventAttendancesController < ApplicationController
     @event_attendance_status = EventAttendanceStatus.all
     @event_attendance = EventAttendance.all
     @guests = Guest.all
-    @eventsname = Event.all
+    @events = Event.all
     @event_attendance_statuses = EventAttendanceStatus.all
-
   end
 
 
@@ -34,6 +33,6 @@ class EventAttendancesController < ApplicationController
   end
 
   def event_attendance_params
-    params.require(:event_attendance).permit(:guest_id, :event_id, :status, :event_attendance_status_id)
+    params.require(:event_attendance).permit(:guest_id, :event_id, :status, :event_attendance_status_id, :event_attendance_id)
   end
 end
