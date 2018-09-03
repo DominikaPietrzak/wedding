@@ -1,34 +1,11 @@
-<table class="table">
-  <thead>
+<% @example_attendance = EventAttendance.first %>
+<% @event_attendance = EventAttendance.first %>
 
-    <%= form_for @event_attendance do |f| %>
-        <tr>
-          <th scope="col">Imię </th>
-          <th scope="col">Nazwisko </th>
-          <% @events.each do |event| %>
-            <th scope="col"> <%=  event.name %>  </th>
-          <% end %>
-          <th scope ="col"> Save </th>
-        </tr>
-  </thead>
-<tbody>
+<% @event_attendance_statuses = EventAttendanceStatus.all %>
+<%= form_for @event_attendance do |f| %>
+  <%= f.hidden_field :event_attendance_id, value: @example_attendance.id %>
+  <%= f.collection_select :event_attendance_status_id, @event_attendance_statuses ,:id, :eastatus , include_blank: false  %>
 
-    <% @guests.each do |g| %>
-      <tr>
-      <td> <%= g.name %> </td>
-      <td> <%= g.surname %></td>
-      <%= f.hidden_field :guest_id,value: g.id %>
-
-      <% @events.each do |event| %>
-        <td> <%= f.select :status,  EventAttendance.statuses.keys.map {|w| [w.humanize, w]} %> </td>
-            <%= f.hidden_field :event_id, value: event.id %>
-            <td> <%= f.submit "save" %></td>
-      <% end %>
-
-      </tr>
-     <% end %>
-
-    <% end %>
-
-</tbody>
-</table>
+  <%= f.hidden_field :event_attendance_id, value: @event_attendance.event_id %>
+  <%= f.submit "save" %>
+<% end %>

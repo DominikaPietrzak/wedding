@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180831135843) do
+ActiveRecord::Schema.define(version: 20180901103345) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20180831135843) do
   end
 
   create_table "event_attendance_statuses", force: :cascade do |t|
-    t.string "status"
+    t.string "eastatus"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -59,7 +59,9 @@ ActiveRecord::Schema.define(version: 20180831135843) do
     t.datetime "updated_at", null: false
     t.bigint "admin_user_id"
     t.integer "status"
+    t.bigint "event_attendance_status_id"
     t.index ["admin_user_id"], name: "index_event_attendances_on_admin_user_id"
+    t.index ["event_attendance_status_id"], name: "index_event_attendances_on_event_attendance_status_id"
     t.index ["event_id"], name: "index_event_attendances_on_event_id"
     t.index ["guest_id"], name: "index_event_attendances_on_guest_id"
   end
@@ -187,6 +189,7 @@ ActiveRecord::Schema.define(version: 20180831135843) do
   end
 
   add_foreign_key "event_attendances", "admin_users"
+  add_foreign_key "event_attendances", "event_attendance_statuses"
   add_foreign_key "event_attendances", "events"
   add_foreign_key "event_attendances", "guests"
   add_foreign_key "events", "admin_users"

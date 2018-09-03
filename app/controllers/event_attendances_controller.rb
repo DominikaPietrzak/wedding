@@ -9,8 +9,7 @@ class EventAttendancesController < ApplicationController
   end
 
   def update
-    @events = current_admin_user.events.all
-    @guests = current_admin_user.guests.all
+    @event_attendance_statuses = EventAttendanceStatus.all
     @event_attendance = current_admin_user.event_attendances.find(params[:id])
     @event_attendance.update_attributes(event_attendance_params)
   end
@@ -22,10 +21,12 @@ class EventAttendancesController < ApplicationController
   end
 
   def update_event_attendance
-
-    @event_attendances = EventAttendance.all
+    @event_attendance_status = EventAttendanceStatus.all
+    @event_attendance = EventAttendance.all
     @guests = Guest.all
     @eventsname = Event.all
+    @event_attendance_statuses = EventAttendanceStatus.all
+
   end
 
 
@@ -33,6 +34,6 @@ class EventAttendancesController < ApplicationController
   end
 
   def event_attendance_params
-    params.require(:event_attendance).permit(:guest_id, :event_id, :status)
+    params.require(:event_attendance).permit(:guest_id, :event_id, :status, :event_attendance_status_id)
   end
 end

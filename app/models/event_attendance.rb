@@ -2,13 +2,10 @@ class EventAttendance < ApplicationRecord
   belongs_to :guest
   belongs_to :event
   belongs_to :admin_user
-  enum status: [:yes, :no]
 
-  after_initialize do
-    if self.new_record?
-      self.status ||= :no
-    end
-  end
+  has_one :event_attendance_status
+
+
 
   def self.create_event_attendance_for_event_and_guest
     @guests = Guest.all

@@ -10,18 +10,20 @@
         </tr>
   </thead>
   <tbody>
-
       <% @guests.each do |guest| %>
         <% @event_attendances = guest.event_attendances %>
-        <% @event_attendances.each do |event_attendance| %>
+
           <tr>
             <td> <%= guest.name %> </td>
             <td> <%= guest.surname %> </td>
-            <%= form_for event_attendance do |f| %>
-              <td>  <%= f.select "event_attendance", "status" ["yes", "no"], :selected => "no" %>   </td>
+            <%= form_tag edit_event_attendance_path do |f| %>
+            <% @event_attendances.each do |event_attendance| %>
+              <% fields_for "event_attendances[]", event_attendance do |ea| %>
+              <td> <%= ea.collection_select :event_attendance_statuses_id, event_attendance ,:id, :eastatus %>  </td>
+                <% end %>
             <% end %>
           </tr>
-        <% end %>
+1         <% end %>
       <% end %>
   </tbody>
 </table>
