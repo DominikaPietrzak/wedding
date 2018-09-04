@@ -6,5 +6,12 @@ class GuestListsController < ApplicationController
   end
 
   def new
-end
+  end
+
+  def update_guest_list
+
+  end
+
+  def edit_guest_list
+  end
 end
