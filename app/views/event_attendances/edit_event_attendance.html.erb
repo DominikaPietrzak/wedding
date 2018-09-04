@@ -1,37 +1,29 @@
 <table class="table">
   <thead>
-        <tr>
-          <th scope="col">Imię </th>
-          <th scope="col">Nazwisko </th>
-          <% @events.each do |event| %>
-            <th scope="col"> <%=  event.name %>  </th>
-
-            <th scope ="col"> Save </th>
-          <% end %>
-        </tr>
+    <tr>
+      <th scope="col">Imię </th>
+      <th scope="col">Nazwisko </th>
+      <% @events.each do |event| %>
+        <th scope="col"> <%= event.name %></th>
+        <th scope ="col"> Save </th>
+      <% end %>
+    </tr>
   </thead>
   <tbody>
-      <% @guests.each do |guest| %>
+    <% @guests.each do |guest| %>
       <tr>
         <td> <%= guest.name %> </td>
         <td> <%= guest.surname %> </td>
         <% @events.each do |event| %>
-
-              <% @event_attendance = EventAttendance.find_by(guest_id: guest.id, event_id: event.id)%>
-
-              <% @event_attendance_statuses = EventAttendanceStatus.all %>
-              <%= form_for @event_attendance, url: {action: "update_event_attendance"}, method: :post do |f| %>
-                <%= f.hidden_field :event_attendance_id, value: @event_attendance.id %>
-                <td><%= f.collection_select :event_attendance_status_id, @event_attendance_statuses ,:id, :eastatus , include_blank: false %> </td>
-                <td><%= f.submit "save" %> </td>
-                <%= f.hidden_field :event_attendance_id, value: @event_attendance.id %>
-              <% end %>
-
-
+          <% @event_attendance = EventAttendance.find_by(guest_id: guest.id, event_id: event.id)%>
+            <%= form_for @event_attendance, url: {action: "update_event_attendance"}, method: :post do |f| %>
+              <%= f.hidden_field :event_attendance_id, value: @event_attendance.id %>
+              <td><%= f.collection_select :event_attendance_status_id, @event_attendance_statuses ,:id, :eastatus , include_blank: false %> </td>
+              <td><%= f.submit "save" %> </td>
+              <%= f.hidden_field :event_attendance_id, value: @event_attendance.id %>
+            <% end %>
         <% end %>
-          </tr>
-      <%end %>
-
-
+      </tr>
+    <%end %>
   </tbody>
 </table>
