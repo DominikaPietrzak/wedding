@@ -32,4 +32,8 @@
 #   }])
 
 #EventAttendanceStatus.create([{eastatus: 'no'}, {eastatus: 'yes'}])
-Newlywed.create([{name: 'bride'}, {name: 'groom'}])
+#Newlywed.create([{name: 'bride'}, {name: 'groom'}])
+
+# (1..10).each do |i|
+#   AccompaningPersonsNumber.create([{number: i}])
+# end
