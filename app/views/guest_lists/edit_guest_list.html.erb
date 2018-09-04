@@ -1,0 +1,38 @@
+test gest list edit
+<table class="table">
+  <thead>
+        <tr>
+          <th scope="col">Imię </th>
+          <th scope="col">Nazwisko </th>
+          <% @newlyweds.each do |newlywed| %>
+            <th scope="col"> <%=  newlywed.name %>  </th>
+
+            <th scope ="col"> Save </th>
+          <% end %>
+        </tr>
+  </thead>
+  <tbody>
+      <% @guests.each do |guest| %>
+      <tr>
+        <td> <%= guest.name %> </td>
+        <td> <%= guest.surname %> </td>
+        <% @newlyweds.each do |newlywed| %>
+
+              <% @guest_list = GuestList.find_by(guest_id: guest.id, newlywed_id: newlywed.id)%>
+              
+              <% @guest_list_statuses = GuestListStatus.all %>
+              <%= form_for @guest_list, url: {action: "update_guest_list"}, method: :post do |f| %>
+                <%= f.hidden_field :guest_list_id, value: @guest_list.id %>
+                <td><%= f.collection_select :guest_list_status_id, @guest_list_statuses ,:id, :status , include_blank: false %> </td>
+                <td><%= f.submit "save" %> </td>
+
+              <% end %>
+
+
+        <% end %>
+          </tr>
+      <%end %>
+
+
+  </tbody>
+</table>
