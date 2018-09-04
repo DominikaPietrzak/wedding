@@ -1,4 +1,5 @@
 class AccompaningPerson < ApplicationRecord
   belongs_to :guests
-  belongs_to :accompaning_person_numbers
+  has_one :accompaning_persons_numbers
+
 end

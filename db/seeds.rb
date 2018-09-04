@@ -37,3 +37,5 @@
 # (1..10).each do |i|
 #   AccompaningPersonsNumber.create([{number: i}])
 # end
+
+GuestListStatus.create([{status: "no"}, {status: "yes"}])
