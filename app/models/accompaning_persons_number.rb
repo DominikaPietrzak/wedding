@@ -1,0 +1,2 @@
+class AccompaningPersonsNumber < ApplicationRecord
+end
