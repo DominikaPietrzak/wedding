@@ -31,4 +31,5 @@
 #   admin_user_id: 1
 #   }])
 
-EventAttendanceStatus.create([{status: 'no'}, {status: 'yes'}])
+#EventAttendanceStatus.create([{eastatus: 'no'}, {eastatus: 'yes'}])
+Newlywed.create([{name: 'bride'}, {name: 'groom'}])

@@ -1,0 +1,2 @@
+class GuestListStatus < ApplicationRecord
+end

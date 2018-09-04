@@ -1,0 +1,2 @@
+class Newlywed < ApplicationRecord
+end

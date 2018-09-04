@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180904075444) do
+ActiveRecord::Schema.define(version: 20180904093415) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -119,6 +119,12 @@ ActiveRecord::Schema.define(version: 20180904075444) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "guest_list_statuses", force: :cascade do |t|
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "guests", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -138,6 +144,12 @@ ActiveRecord::Schema.define(version: 20180904075444) do
     t.index ["admin_user_id"], name: "index_guests_on_admin_user_id"
     t.index ["email"], name: "index_guests_on_email", unique: true
     t.index ["reset_password_token"], name: "index_guests_on_reset_password_token", unique: true
+  end
+
+  create_table "newlyweds", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "participations", force: :cascade do |t|
