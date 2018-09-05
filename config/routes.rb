@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   resources :expense_stuffs
   resources :events
   resources :event_attendances
+  resources :budgets
+  
   get 'expense/services', to: 'expense_services#index'
   get "/pages/:page" => "presentation_pages#show"
   root "presentation_pages#show", page: "welcome_page"

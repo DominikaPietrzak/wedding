@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180904124832) do
+ActiveRecord::Schema.define(version: 20180905101751) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,18 @@ ActiveRecord::Schema.define(version: 20180904124832) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+  end
+
+  create_table "budgets", force: :cascade do |t|
+    t.float "max"
+    t.float "mid"
+    t.float "min"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "event_id"
+    t.bigint "admin_user_id"
+    t.index ["admin_user_id"], name: "index_budgets_on_admin_user_id"
+    t.index ["event_id"], name: "index_budgets_on_event_id"
   end
 
   create_table "event_attendance_statuses", force: :cascade do |t|
@@ -225,6 +237,8 @@ ActiveRecord::Schema.define(version: 20180904124832) do
 
   add_foreign_key "accompaning_people", "guests", column: "guests_id"
   add_foreign_key "accompaning_persons_numbers", "accompaning_people", column: "accompaning_people_id"
+  add_foreign_key "budgets", "admin_users"
+  add_foreign_key "budgets", "events"
   add_foreign_key "event_attendances", "admin_users"
   add_foreign_key "event_attendances", "event_attendance_statuses"
   add_foreign_key "event_attendances", "events"

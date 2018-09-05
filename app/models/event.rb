@@ -1,6 +1,7 @@
 class Event < ApplicationRecord
   has_many :event_attendances, dependent: :destroy
   belongs_to :admin_user
+  has_many :budgets
 
   def self.create_event_attendance(event,admin)
     @guests = Guest.all
