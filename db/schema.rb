@@ -10,18 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180905155642) do
+ActiveRecord::Schema.define(version: 20180905164901) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "accompaning_people", force: :cascade do |t|
-    t.bigint "guests_id"
+    t.bigint "guest_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "accompaning_persons_number_id"
     t.index ["accompaning_persons_number_id"], name: "index_accompaning_people_on_accompaning_persons_number_id"
-    t.index ["guests_id"], name: "index_accompaning_people_on_guests_id"
+    t.index ["guest_id"], name: "index_accompaning_people_on_guest_id"
   end
 
   create_table "accompaning_persons_numbers", force: :cascade do |t|
@@ -236,7 +236,7 @@ ActiveRecord::Schema.define(version: 20180905155642) do
   end
 
   add_foreign_key "accompaning_people", "accompaning_persons_numbers"
-  add_foreign_key "accompaning_people", "guests", column: "guests_id"
+  add_foreign_key "accompaning_people", "guests"
   add_foreign_key "budgets", "admin_users"
   add_foreign_key "budgets", "events"
   add_foreign_key "event_attendances", "admin_users"

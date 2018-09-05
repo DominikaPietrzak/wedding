@@ -3,7 +3,7 @@ class Guest < ApplicationRecord
   belongs_to :admin_user , optional: true
   has_one :guest_adress
   has_many :event_attendances
-  has_one :accompaning_persons_number
+  has_one :accompaning_people
 
 
   # Include default devise modules. Others available are:
