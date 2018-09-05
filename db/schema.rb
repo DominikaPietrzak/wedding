@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180905101751) do
+ActiveRecord::Schema.define(version: 20180905155642) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20180905101751) do
     t.bigint "guests_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "accompaning_persons_number_id"
+    t.index ["accompaning_persons_number_id"], name: "index_accompaning_people_on_accompaning_persons_number_id"
     t.index ["guests_id"], name: "index_accompaning_people_on_guests_id"
   end
 
@@ -26,8 +28,6 @@ ActiveRecord::Schema.define(version: 20180905101751) do
     t.integer "number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "accompaning_people_id"
-    t.index ["accompaning_people_id"], name: "index_accompaning_persons_numbers_on_accompaning_people_id"
   end
 
   create_table "active_admin_comments", force: :cascade do |t|
@@ -235,8 +235,8 @@ ActiveRecord::Schema.define(version: 20180905101751) do
     t.index ["reset_password_token"], name: "index_user_admins_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "accompaning_people", "accompaning_persons_numbers"
   add_foreign_key "accompaning_people", "guests", column: "guests_id"
-  add_foreign_key "accompaning_persons_numbers", "accompaning_people", column: "accompaning_people_id"
   add_foreign_key "budgets", "admin_users"
   add_foreign_key "budgets", "events"
   add_foreign_key "event_attendances", "admin_users"

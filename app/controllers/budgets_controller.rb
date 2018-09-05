@@ -10,7 +10,6 @@ class BudgetsController < ApplicationController
     @budget = current_admin_user.budgets.build
   end
 
-
   def create
     @budget = current_admin_user.budgets.build(budget_params)
     @budget.save
@@ -22,7 +21,6 @@ class BudgetsController < ApplicationController
   end
 
   def update_budgets
-
     @budget = Budget.find_by(params[:budget][:id])
     @budget.update_attributes(budget_params)
   end
