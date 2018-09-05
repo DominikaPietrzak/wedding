@@ -10,18 +10,24 @@ class BudgetsController < ApplicationController
     @budget = current_admin_user.budgets.build
   end
 
+
   def create
     @budget = current_admin_user.budgets.build(budget_params)
     @budget.save
   end
 
-  def edit
+
+  def edit_budgets
+
   end
 
-  def update
+  def update_budgets
+
+    @budget = Budget.find_by(params[:budget][:id])
+    @budget.update_attributes(budget_params)
   end
 
   def budget_params
-    params.require(:event).permit(:min, :max, :mid)
+    params.require(:budget).permit(:min, :max, :mid, :event_id, :budget_id)
   end
 end

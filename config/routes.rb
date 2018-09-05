@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :events
   resources :event_attendances
   resources :budgets
-  
+
   get 'expense/services', to: 'expense_services#index'
   get "/pages/:page" => "presentation_pages#show"
   root "presentation_pages#show", page: "welcome_page"
@@ -23,4 +23,9 @@ Rails.application.routes.draw do
   # guest list
   get "/update_guest_list" => 'guest_lists#edit_guest_list'
   post "/update_guest_list" => 'guest_lists#update_guest_list'
+
+  #budget
+  get "/update_budgets" => 'budgets#edit_budgets'
+  post "/update_budgets" => 'budgets#update_budgets'
+
 end

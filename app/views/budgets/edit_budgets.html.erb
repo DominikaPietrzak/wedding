@@ -1,0 +1,28 @@
+<% @events = Event.all %>
+<table class = "table" >
+  <thead>
+    <tr>
+      <th scope = "col"> Event name </th>
+      <th scope = "col"> Minimal Buget </th>
+      <th scope = "col"> Mid Budget </th>
+      <th scope = "col"> Max Budget </th>
+      <th scope = "col"> Save </th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @events.each do |event| %>
+    <tr>
+      <% @budget = Budget.find_by(event_id: event.id) %>
+
+      <%=  form_for @budget,  url: {action: "update_budgets"}, method: :post do |f| %>
+        <td><%= event.name %> </td>
+        <td><%= f.text_field :min %></td>
+        <td><%= f.text_field :mid %></td>
+        <td><%= f.text_field :max %></td>
+            <%= f.hidden_field :event_id, value: event.id %>
+        <td><%= f.submit %></td>
+      <% end %>
+    <% end %>
+    </tr>
+  </tbody>
+</table>
