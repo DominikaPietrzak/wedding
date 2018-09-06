@@ -16,19 +16,35 @@
   </thead>
   <tbody>
       <tr>
-      <%= form_for @expense_service do |f| %>
-        <td><%= f.text_field :name %></td>
-        <td><%= f.text_field :cost %></td>
-        <td><%= f.text_field :amount %></td>
-        <td><%= f.text_field :paydeadline %></td>
-        <td><%= f.text_field :min_cost %></td>
-        <td><%= f.text_field :mid_cost %></td>
-        <td><%= f.text_field :max_cost %></td>
-        <td><%= f.text_field :min_amount %></td>
-        <td><%= f.text_field :mid_amount %></td>
-        <td><%= f.text_field :max_amount %></td>
-        <td> <%= f.submit %> </td>
-      <% end %>
+
+          <%= form_for @expense_service do |f| %>
+            <td><%= f.text_field :name %></td>
+            <td><%= f.text_field :cost %></td>
+            <td><%= f.text_field :amount %></td>
+            <td><div class='input-group date' id='datetimepicker3'>
+                <%= f.text_field :paydeadline %>
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span></div> </td>
+            <td><%= f.text_field :min_cost %></td>
+            <td><%= f.text_field :mid_cost %></td>
+            <td><%= f.text_field :max_cost %></td>
+            <td><%= f.text_field :min_amount %></td>
+            <td><%= f.text_field :mid_amount %></td>
+            <td><%= f.text_field :max_amount %></td>
+
+
+            <td> <%= f.submit %> </td>
+          <% end %>
       </tr>
   </tbody>
+
+</div>
+<script type="text/javascript">
+  $(function () {
+      $('#datetimepicker3').datetimepicker({
+        format: 'DD-MM-YYYY hh:mm'
+      });
+  });
+</script>
 </table>
