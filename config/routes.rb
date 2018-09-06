@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
-  get 'expense_stuff_cost_min_sum/index'
 
-  get 'expense_stuff_cost_mid_sum/index'
+  # expense stuff
+  get 'expense_stuff_cost_sum', to: 'expense_stuff_cost_sum#index'
+  get 'expense_stuff_cost_min_sum', to: 'expense_stuff_cost_min_sum#index'
+  get 'expens_stuff_cost_max_sum', to: 'expens_stuff_cost_max_sum#index'
+  get 'expense_stuff_cost_mid_sum',  to: 'expens_stuff_cost_mid_sum#index'
 
   devise_for :superadmins, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
