@@ -28,4 +28,8 @@ Rails.application.routes.draw do
   get "/update_budgets" => 'budgets#edit_budgets'
   post "/update_budgets" => 'budgets#update_budgets'
 
+  #accompaning person
+  get "update_accompaning_people" => 'accompaning_people#edit_accompaning_people'
+  post "update_accompaning_people" => 'accompaning_people#update_accompaning_people'
+
 end
