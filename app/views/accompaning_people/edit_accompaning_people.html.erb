@@ -14,8 +14,9 @@
           <td> <%= guest.name %> </td>
           <td> <%= guest.surname %> </td>
           <% @accompanig_person = AccompaningPerson.find_by(guest_id: guest.id)%>
-          <%= form_for @accompanig_person, url: {action: "update_accompaning_people"}, method: :post do |f| %>
-              <td><%= f.collection_select :accompaning_persons_number_id, @accompaning_persons_number ,:id, :number , include_blank: false %> </td>
+          <%= form_for  @accompanig_person, url: {action: "update_accompaning_people"}, method: :post do |f| %>
+              <td><%= f.collection_select :accompaning_persons_number_id, @accompaning_persons_numbers ,:id, :number , include_blank: false %> </td>
+                  <%= f.hidden_field :accompanig_person_id, value: @accompanig_person.id %>
               <td><%= f.submit "save" %> </td>
           <% end %>
         </tr>
