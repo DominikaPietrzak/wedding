@@ -17,7 +17,7 @@ class EventsController < ApplicationController
   end
 
   def update
-
+    
   end
 
   def event_params
