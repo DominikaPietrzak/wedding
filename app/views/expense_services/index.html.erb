@@ -1,0 +1,31 @@
+<table class = "table">
+  <thead>
+    <tr>
+      <th scope = "col"> Nazwa </th>
+      <th scope = "col"> Koszt </th>
+      <th scope = "col"> Ilość </th>
+      <th scope = "col"> Ostateczny czas zapłaty </th>
+      <th scope = "col"> Minimalny koszt</th>
+      <th scope = "col"> Średni koszt</th>
+      <th scope = "col"> Maxymalny koszt </th>
+      <th scope = "col"> Mimimalna ilość </th>
+      <th scope = "col"> Średnia ilość </th>
+      <th scope = "col"> Maxymalna ilość </th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <% @expense_services.each do |service| %>
+          <td><%= service.name %></td>
+          <td><%= service.cost %></td>
+          <td><%= service.amount %></td>
+          <td><%= service.paydeadline %></td>
+          <td><%= service.min_cost %></td>
+          <td><%= service.mid_cost %></td>
+          <td><%= service.max_cost %></td>
+          <td><%= service.min_amount %></td>
+          <td><%= service.mid_amount %></td>
+          <td><%= service.max_amount %></td>
+        <% end %>
+      </tr>
+  </tbody>
