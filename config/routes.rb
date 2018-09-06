@@ -6,6 +6,13 @@ Rails.application.routes.draw do
   get 'expens_stuff_cost_max_sum', to: 'expens_stuff_cost_max_sum#index'
   get 'expense_stuff_cost_mid_sum',  to: 'expens_stuff_cost_mid_sum#index'
 
+  # expense service
+
+  get 'expense_service_cost_sum', to: 'expense_services_cost_sum#index'
+  get 'expense_service_cost_min_sum', to: 'expense_services_cost_sum_cost_min_sum#index'
+  get 'expens_service_cost_max_sum', to: 'expens_services_cost_max_sum#index'
+  get 'expense_service_cost_mid_sum',  to: 'expens_services_cost_mid_sum#index'
+
   devise_for :superadmins, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :admin_user
