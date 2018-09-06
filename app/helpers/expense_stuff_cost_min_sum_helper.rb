@@ -1,0 +1,2 @@
+module ExpenseStuffCostMinSumHelper
+end

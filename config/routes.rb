@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'expense_stuff_cost_min_sum/index'
+
+  get 'expense_stuff_cost_mid_sum/index'
+
   devise_for :superadmins, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :admin_user
