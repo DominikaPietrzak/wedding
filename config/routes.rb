@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  get 'lywed_guest_lists/index'
+  # lywed guest list
+  get '/lywed_guest_lists' => 'lywed_guest_lists#index'
 
   # expense stuff
   get 'expense_stuff_cost_sum', to: 'expense_stuff_cost_sum#index'
@@ -50,4 +51,5 @@ Rails.application.routes.draw do
 
   #event guest list
   get "event_guests_lists" => 'event_guests_lists#index'
+
 end
