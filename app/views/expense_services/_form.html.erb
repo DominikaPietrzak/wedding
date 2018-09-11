@@ -1,45 +1,64 @@
 <table class = "table">
   <thead>
     <tr>
-      <th scope = "col"> Nazwa </th>
-      <th scope = "col"> Koszt </th>
-      <th scope = "col"> Ilość </th>
-      <th scope = "col"> Ostateczny czas zapłaty </th>
-      <th scope = "col"> Minimalny koszt</th>
-      <th scope = "col"> Średni koszt</th>
-      <th scope = "col"> Maxymalny koszt </th>
-      <th scope = "col"> Mimimalna ilość </th>
-      <th scope = "col"> Średnia ilość </th>
-      <th scope = "col"> Maxymalna ilość </th>
-      <th scope = "col"> Save </th>
+      <th scope = "col"> Dodaj nową usługę </th>
     </tr>
   </thead>
   <tbody>
+      <%= form_for @expense_service do |f| %>
       <tr>
-
-          <%= form_for @expense_service do |f| %>
-            <td><%= f.text_field :name %></td>
-            <td><%= f.text_field :cost %></td>
-            <td><%= f.text_field :amount %></td>
-            <td><div class='input-group date' id='datetimepicker3'>
-                <%= f.text_field :paydeadline %>
-                <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
-                </span></div> </td>
-            <td><%= f.text_field :min_cost %></td>
-            <td><%= f.text_field :mid_cost %></td>
-            <td><%= f.text_field :max_cost %></td>
-            <td><%= f.text_field :min_amount %></td>
-            <td><%= f.text_field :mid_amount %></td>
-            <td><%= f.text_field :max_amount %></td>
-
-
-            <td> <%= f.submit %> </td>
-          <% end %>
+        <th scope = "col"> Nazwa usługi </th>
+        <th scope = "col">Ostateczny czas zapłaty </th>
+      <tr>
+      <tr>
+        <td><%= f.text_field :name %></td>
+        <td><div class='input-group date' id='datetimepicker3'>
+            <%= f.text_field :paydeadline %>
+            <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+            </span></div> </td>
       </tr>
-  </tbody>
+      <tr>
+        <th scope = "col"> Koszt </th>
+        <th scope = "col"> Ilość </th>
+      </tr>
+      <tr>
+        <td><%= f.text_field :cost %></td>
+        <td><%= f.text_field :amount %></td>
+      </tr>
 
-</div>
+    <tr>
+      <th scope = "col"> Minimalny koszt</th>
+      <th scope = "col"> Mimimalna ilość </th>
+    </tr>
+      <td><%= f.text_field :min_cost %></td>
+      <td><%= f.text_field :min_amount %></td>
+    <tr>
+
+    <tr>
+      <th scope = "col"> Średni koszt</th>
+      <th scope = "col"> Średnia ilość </th>
+    </tr>
+    <tr>
+      <td><%= f.text_field :mid_cost %></td>
+      <td><%= f.text_field :mid_amount %></td>
+    </tr>
+
+    <tr>
+      <th scope = "col"> Maksymalny koszt </th>
+      <th scope = "col"> Maksymalna ilość </th>
+    </tr>
+    <tr>
+      <td><%= f.text_field :max_cost %></td>
+      <td><%= f.text_field :max_amount %></td>
+    </tr>
+    <tr>
+      <td><%= f.submit %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
 <script type="text/javascript">
   $(function () {
       $('#datetimepicker3').datetimepicker({
@@ -47,4 +66,3 @@
       });
   });
 </script>
-</table>
