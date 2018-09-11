@@ -10,3 +10,8 @@
   <%=  @guest_lists.count %>
   </br>
 <% end %>
+<p>All guests <p>
+<% @guests.each do |guest| %>
+  <%= guest.name %>
+  <%= guest.surname %></br>
+<% end %>
