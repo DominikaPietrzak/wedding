@@ -1,0 +1,2 @@
+module LywedGuestListsHelper
+end

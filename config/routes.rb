@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'lywed_guest_lists/index'
+
   # expense stuff
   get 'expense_stuff_cost_sum', to: 'expense_stuff_cost_sum#index'
   get 'expense_stuff_cost_min_sum', to: 'expense_stuff_cost_min_sum#index'
