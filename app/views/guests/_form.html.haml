@@ -1,14 +1,13 @@
 
 = form_for @guest do |f|
-  -#
-  -# = f.label :name
-  -# = f.text_field :name
-  -# %br/
-  -# = f.label :surname
-  -# = f.text_field :surname
-  -# %br/
-  -# = f.label :email
-  -# = f.text_field :email
+   = f.label :name
+   = f.text_field :name
+  %br/
+  = f.label :surname
+  = f.text_field :surname
+  %br/
+  = f.label :email
+  = f.text_field :email
   -# %br/
   -# = f.label :telephone
   -# = f.text_field :telephone
@@ -25,4 +24,4 @@
   -# = f.label :country
   -# = f.text_field :country
   -# %br/
-  -# = f.submit 'Save'
+  = f.submit 'Save'

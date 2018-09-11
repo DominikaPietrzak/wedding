@@ -26,7 +26,6 @@ def destroy
   @expense_service.destroy
 end
 
-
 private
 
 def expense_services_params
