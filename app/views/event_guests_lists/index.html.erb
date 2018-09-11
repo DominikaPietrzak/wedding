@@ -1,0 +1,11 @@
+<% @events.each do |event| %>
+  <%= event.name %>
+  </br>
+  <% @event_attendances = EventAttendance.where(event_id: event.id, event_attendance_status_id: 2 ) %>
+  <% @event_attendances.each do |eattendance| %>
+    <% guest = Guest.find_by(id: eattendance.guest_id) %>
+      <%= guest.name %>
+      <%= guest.surname %>
+    </br>
+  <% end %>
+<% end %>

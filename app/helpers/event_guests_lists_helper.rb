@@ -1,0 +1,2 @@
+module EventGuestsListsHelper
+end
