@@ -4,6 +4,7 @@ class Guest < ApplicationRecord
   has_one :guest_adress
   has_many :event_attendances
   has_one :accompaning_people
+  has_many :ea_guest_confirmations
 
 
   # Include default devise modules. Others available are:

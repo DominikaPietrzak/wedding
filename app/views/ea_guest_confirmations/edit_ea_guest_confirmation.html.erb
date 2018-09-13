@@ -1,6 +1,11 @@
-<%= @ea_guest_confirmation.each do |confirmation| %>
-<% event = Events.find_by(id: confirmation.event_id) %>
-<%= "Będę uczestniczyć w wydarzeniu" %>
-<% event.name %>
-
+<% @ea_guest_confirmations.each do |confirmation| %>
+  <% event = Event.find_by(id: confirmation.event_id) %>
+  <%= "Będę uczestniczyć w wydarzeniu" %>
+  <%= event.name %> </br>
+  <% @confirmation = EaGuestConfirmation.find_by(id: confirmation.id) %>
+  
+  <%= form_for @confirmation, url: {action: "update_ea_guest_confirmation"}, method: :post do |f| %>
+    <%= f.collection_select :guest_confirmation_status_id, @confirmations ,:id, :status , include_blank: false %>
+    <%= f.hidden_field :guest_id, value: @confirmation.guest_id %>
+  <% end %>
 <% end %>
