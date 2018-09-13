@@ -26,6 +26,7 @@ class EventAttendancesController < ApplicationController
     @event_attendance_statuses = EventAttendanceStatus.all
     @event_attendance = EventAttendance.find_by(id: params[:event_attendance][:event_attendance_id])
     @event_attendance.update_attributes(event_attendance_params)
+    EaGuestConfirmation.create_or_delete_ea_guest_confirmation(@event_attendance)
   end
 
   def event_attendance_params

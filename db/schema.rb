@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180913084315) do
+ActiveRecord::Schema.define(version: 20180913093421) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,6 +70,17 @@ ActiveRecord::Schema.define(version: 20180913084315) do
     t.bigint "admin_user_id"
     t.index ["admin_user_id"], name: "index_budgets_on_admin_user_id"
     t.index ["event_id"], name: "index_budgets_on_event_id"
+  end
+
+  create_table "ea_guest_confirmations", force: :cascade do |t|
+    t.bigint "guest_id"
+    t.bigint "guest_confirmation_status_id"
+    t.bigint "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_ea_guest_confirmations_on_event_id"
+    t.index ["guest_confirmation_status_id"], name: "index_ea_guest_confirmations_on_guest_confirmation_status_id"
+    t.index ["guest_id"], name: "index_ea_guest_confirmations_on_guest_id"
   end
 
   create_table "event_attendance_statuses", force: :cascade do |t|
@@ -240,6 +251,9 @@ ActiveRecord::Schema.define(version: 20180913084315) do
   add_foreign_key "accompaning_people", "guests"
   add_foreign_key "budgets", "admin_users"
   add_foreign_key "budgets", "events"
+  add_foreign_key "ea_guest_confirmations", "events"
+  add_foreign_key "ea_guest_confirmations", "guest_confirmation_statuses"
+  add_foreign_key "ea_guest_confirmations", "guests"
   add_foreign_key "event_attendances", "admin_users"
   add_foreign_key "event_attendances", "event_attendance_statuses"
   add_foreign_key "event_attendances", "events"

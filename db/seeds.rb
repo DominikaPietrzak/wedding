@@ -39,4 +39,4 @@
  # end
 
 # GuestListStatus.create([{status: "no"}, {status: "yes"}])
- GuestConfirmationStatus.create([{status: "no"}, {status: "yes"}, {status: "maybe"}])
+# GuestConfirmationStatus.create([{status: "no"}, {status: "yes"}, {status: "maybe"}])
