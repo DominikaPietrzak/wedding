@@ -46,10 +46,14 @@ Rails.application.routes.draw do
   post "/update_budgets" => 'budgets#update_budgets'
 
   #accompaning person
-  get "update_accompaning_people" => 'accompaning_people#edit_accompaning_people'
-  post "update_accompaning_people" => 'accompaning_people#update_accompaning_people'
+  get "/update_accompaning_people" => 'accompaning_people#edit_accompaning_people'
+  post "/update_accompaning_people" => 'accompaning_people#update_accompaning_people'
 
   #event guest list
   get "event_guests_lists" => 'event_guests_lists#index'
+
+  #event attendance guest confirmations
+  get "/update_ea_guest_confirmation" => 'ea_guest_confirmations#edit_ea_guest_confirmation'
+  post "/update_accompaning_people" => 'ea_guest_confirmations#update_ea_guest_confirmation'
 
 end

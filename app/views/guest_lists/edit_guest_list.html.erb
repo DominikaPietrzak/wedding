@@ -19,7 +19,7 @@ test gest list edit
         <% @newlyweds.each do |newlywed| %>
 
               <% @guest_list = GuestList.find_by(guest_id: guest.id, newlywed_id: newlywed.id)%>
-              
+
               <% @guest_list_statuses = GuestListStatus.all %>
               <%= form_for @guest_list, url: {action: "update_guest_list"}, method: :post do |f| %>
                 <%= f.hidden_field :guest_list_id, value: @guest_list.id %>
