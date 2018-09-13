@@ -54,6 +54,6 @@ Rails.application.routes.draw do
 
   #event attendance guest confirmations
   get "/update_ea_guest_confirmation" => 'ea_guest_confirmations#edit_ea_guest_confirmation'
-  post "/update_accompaning_people" => 'ea_guest_confirmations#update_ea_guest_confirmation'
+  post "/update_ea_guest_confirmation" => 'ea_guest_confirmations#update_ea_guest_confirmation'
 
 end
