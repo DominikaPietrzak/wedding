@@ -1,0 +1,2 @@
+class GuestConfirmationStatus < ApplicationRecord
+end
