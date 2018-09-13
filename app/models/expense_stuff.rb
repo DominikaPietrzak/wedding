@@ -9,10 +9,6 @@ class ExpenseStuff < ApplicationRecord
     ExpenseStuff.pluck('sum((max_amount) *(max_cost))')
   end
 
-  def self.sum_expense_stuff_mid_cost
-    ExpenseStuff.pluck('sum((mid_amount) *(mid_cost))')
-  end
-
   def self.sum_expense_stuff_min_cost
     ExpenseStuff.pluck('sum((min_amount) *(min_cost))')
   end

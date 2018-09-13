@@ -29,7 +29,7 @@ end
 private
 
 def expense_services_params
-  params.require(:expense_service).permit(:name, :cost, :paydeadline, :max_cost, :min_cost, :mid_cost, :max_amount, :mid_amount, :min_amount, :amount)
+  params.require(:expense_service).permit(:name, :cost, :paydeadline, :max_cost, :min_cost, :max_amount, :min_amount, :amount)
 end
 
 

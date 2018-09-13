@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180913081507) do
+ActiveRecord::Schema.define(version: 20180913082550) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -108,9 +108,7 @@ ActiveRecord::Schema.define(version: 20180913081507) do
     t.datetime "updated_at", null: false
     t.float "max_cost"
     t.float "min_cost"
-    t.float "mid_cost"
     t.float "max_amount"
-    t.float "mid_amount"
     t.float "min_amount"
     t.float "amount"
     t.bigint "admin_user_id"
@@ -125,9 +123,7 @@ ActiveRecord::Schema.define(version: 20180913081507) do
     t.datetime "updated_at", null: false
     t.float "max_cost"
     t.float "min_cost"
-    t.float "mid_cost"
     t.float "max_amount"
-    t.float "mid_amount"
     t.float "min_amount"
     t.float "amount"
     t.bigint "admin_user_id"
