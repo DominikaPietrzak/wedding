@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180913093421) do
+ActiveRecord::Schema.define(version: 20180914091546) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -111,34 +111,15 @@ ActiveRecord::Schema.define(version: 20180913093421) do
     t.index ["admin_user_id"], name: "index_events_on_admin_user_id"
   end
 
-  create_table "expense_services", force: :cascade do |t|
+  create_table "expenses", force: :cascade do |t|
+    t.bigint "admin_user_id"
     t.string "name"
     t.float "cost"
     t.datetime "paydeadline"
+    t.float "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.float "max_cost"
-    t.float "min_cost"
-    t.float "max_amount"
-    t.float "min_amount"
-    t.float "amount"
-    t.bigint "admin_user_id"
-    t.index ["admin_user_id"], name: "index_expense_services_on_admin_user_id"
-  end
-
-  create_table "expense_stuffs", force: :cascade do |t|
-    t.string "name"
-    t.float "cost"
-    t.datetime "paydeadline"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.float "max_cost"
-    t.float "min_cost"
-    t.float "max_amount"
-    t.float "min_amount"
-    t.float "amount"
-    t.bigint "admin_user_id"
-    t.index ["admin_user_id"], name: "index_expense_stuffs_on_admin_user_id"
+    t.index ["admin_user_id"], name: "index_expenses_on_admin_user_id"
   end
 
   create_table "guest_adresses", force: :cascade do |t|
@@ -259,8 +240,7 @@ ActiveRecord::Schema.define(version: 20180913093421) do
   add_foreign_key "event_attendances", "events"
   add_foreign_key "event_attendances", "guests"
   add_foreign_key "events", "admin_users"
-  add_foreign_key "expense_services", "admin_users"
-  add_foreign_key "expense_stuffs", "admin_users"
+  add_foreign_key "expenses", "admin_users"
   add_foreign_key "guest_lists", "guest_list_statuses"
   add_foreign_key "guest_lists", "guests"
   add_foreign_key "guest_lists", "newlyweds"

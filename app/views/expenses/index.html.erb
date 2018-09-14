@@ -1,0 +1,20 @@
+<table class = "table" >
+  <thead>
+    <tr>
+      <th scope = "col">Nazwa </th>
+      <th scope = "col"> Koszt</th>
+      <th scope = "col"> Ilość </th>
+      <th scope = "col">Czas zapłaty </th>
+    <tr>
+  <thead>
+  <tbody>
+    <% @expenses.each do |stuff| %>
+      <tr>
+        <td><%= stuff.name %></td>
+        <td><%= stuff.cost %></td>
+        <td><%= stuff.amount %></td>
+        <td><%= stuff.paydeadline %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
