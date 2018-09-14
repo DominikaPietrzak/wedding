@@ -1,15 +1,15 @@
 require 'rails_helper'
 
 # Specs in this file have access to a helper object that includes
-# the BudgetHowMuchMoneyLeftsHelper. For example:
+# the BudgetMinHowMuchMoneyLeftsHelper. For example:
 #
-# describe BudgetHowMuchMoneyLeftsHelper do
+# describe BudgetMinHowMuchMoneyLeftsHelper do
 #   describe "string concat" do
 #     it "concats two strings with spaces" do
 #       expect(helper.concat_strings("this","that")).to eq("this that")
 #     end
 #   end
 # end
-RSpec.describe BudgetHowMuchMoneyLeftsHelper, type: :helper do
+RSpec.describe BudgetMinHowMuchMoneyLeftsHelper, type: :helper do
   pending "add some examples to (or delete) #{__FILE__}"
 end

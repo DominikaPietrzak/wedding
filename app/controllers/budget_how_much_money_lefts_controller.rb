@@ -1,2 +1,0 @@
-class BudgetHowMuchMoneyLeftsController < ApplicationController
-end

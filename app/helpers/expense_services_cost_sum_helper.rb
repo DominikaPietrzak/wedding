@@ -1,2 +1,0 @@
-module ExpenseServicesCostSumHelper
-end

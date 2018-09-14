@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-
-
   devise_for :superadmins, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :admin_user
@@ -44,4 +42,9 @@ Rails.application.routes.draw do
 
   # lywed guest list
   get '/lywed_guest_lists' => 'lywed_guest_lists#index'
+
+  # budget
+  get "budget_max_how_much_money_lefts" => 'budget_max_how_much_money_lefts#index'
+  get "budget_min_how_much_money_lefts" => 'budget_min_how_much_money_lefts#index'
+
 end
