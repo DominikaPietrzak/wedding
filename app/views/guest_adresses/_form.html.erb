@@ -1,0 +1,15 @@
+<%= form_for @guest_adress do |f| %>
+  <%= f.label :street %>
+  <%= f.text_field :street %></br>
+  <%= f.label :home_number %>
+  <%= f.text_field :home_number %></br>
+  <%= f.label :town %>
+  <%= f.text_field :town %></br>
+  <%= f.label :code %>
+  <%= f.text_field :code %></br>
+  <%= f.label :state %>
+  <%= f.text_field :state %></br>
+  <%= f.label :telephone %>
+  <%= f.text_field :telephone %></br>
+  <%= f.submit 'Save'%>
+<% end %>

@@ -1,0 +1,2 @@
+module GuestAdressesHelper
+end

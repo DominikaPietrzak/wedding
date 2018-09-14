@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180914091546) do
+ActiveRecord::Schema.define(version: 20180914183339) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -131,6 +131,8 @@ ActiveRecord::Schema.define(version: 20180914091546) do
     t.string "telephone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "guest_id"
+    t.index ["guest_id"], name: "index_guest_adresses_on_guest_id"
   end
 
   create_table "guest_confirmation_statuses", force: :cascade do |t|
@@ -241,6 +243,7 @@ ActiveRecord::Schema.define(version: 20180914091546) do
   add_foreign_key "event_attendances", "guests"
   add_foreign_key "events", "admin_users"
   add_foreign_key "expenses", "admin_users"
+  add_foreign_key "guest_adresses", "guests"
   add_foreign_key "guest_lists", "guest_list_statuses"
   add_foreign_key "guest_lists", "guests"
   add_foreign_key "guest_lists", "newlyweds"

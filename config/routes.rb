@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :event_attendances
   resources :budgets
   resources :expenses
+  resources :guest_adresses
 
 
   get "/pages/:page" => "presentation_pages#show"

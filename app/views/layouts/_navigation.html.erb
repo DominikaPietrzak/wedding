@@ -19,6 +19,11 @@
 <%= link_to "Lywed guests lists", lywed_guest_lists_path %>
 <%= "Event guests lists" %>
 <%= link_to "Event guests lists", event_guests_lists_path %>
+<%= "All guest adreses" %>
+<%= link_to "All guest adresess", guest_adresses_path %>
 </br>
 <%= "For guests only" %>
 <%= link_to "Update Guest Confirmation", update_ea_guest_confirmation_path %>
+<%= link_to "Add adress", new_guest_adress_path %>
+<% @guest_adress = current_guest.guest_adress %>
+<%= link_to "Edit adress", edit_guest_adress_path(@guest_adress) %>
