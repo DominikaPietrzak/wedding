@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get "/event_time_count_down" => 'event_time_count_downs#index'
+
   devise_for :superadmins, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :admin_user
@@ -13,7 +15,8 @@ Rails.application.routes.draw do
   resources :event_attendances
   resources :budgets
   resources :expenses
-  get 'expense/services', to: 'expense_services#index'
+
+
   get "/pages/:page" => "presentation_pages#show"
   root "presentation_pages#show", page: "welcome_page"
 
