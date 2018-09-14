@@ -5,15 +5,17 @@
       <th scope = "col"> Koszt</th>
       <th scope = "col"> Ilość </th>
       <th scope = "col">Czas zapłaty </th>
+      <th scope = "col"> Usuń </th>
     <tr>
   <thead>
   <tbody>
-    <% @expenses.each do |stuff| %>
+    <% @expenses.each do |expense| %>
       <tr>
-        <td><%= stuff.name %></td>
-        <td><%= stuff.cost %></td>
-        <td><%= stuff.amount %></td>
-        <td><%= stuff.paydeadline %></td>
+        <td><%= expense.name %></td>
+        <td><%= expense.cost %></td>
+        <td><%= expense.amount %></td>
+        <td><%= expense.paydeadline %></td>
+        <td><%= link_to 'Destroy',  expense_path( expense), method: :delete  %></td>
       </tr>
     <% end %>
   </tbody>
