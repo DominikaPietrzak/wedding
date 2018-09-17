@@ -1,26 +1,62 @@
-<h2>Log in</h2>
+ <link href="https://fonts.googleapis.com/css?family=Pinyon+Script" rel="stylesheet"> <link href="https://fonts.googleapis.com/css?family=Arizonia|Pinyon+Script" rel="stylesheet">
+ <div class= "bigimg" >
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+  <div class = "container">
+    <div class = "row">
+      <div class = "col-sm-4">
+      </div>
+      <div class = "col-sm-4">
+        <h1> Wedding Mister </br> & </br> Miss </h1>
+      </div>
+      <div class = "col-sm-4">
+      </div>
     </div>
-  <% end -%>
+    <div class = "row">
+      <div class = "col-sm-4">
+      </div>
+      <div class = "col-sm-4">
+        <h2>Zaloguj się</h2>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="field">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :password %><br />
+            <%= f.password_field :password, autocomplete: "off" %>
+          </div>
+
+          <% if devise_mapping.rememberable? -%>
+            <div class="field">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me %>
+            </div>
+          <% end -%>
+
+          <div class="actions">
+            <%= f.submit "Log in" %>
+          </div>
+        <% end %>
+
+        <%= render "guests/shared/links" %>
+      </div>
+
+      <div class= "col-sm-4">
+      </div>
+    </div>
+
+        <style type="text/css">
+          .bigimg {
+            background-image: url('/assets/cherry.jpg');
+            text-align: center;
+            color: #DAA520;
+            opacity: 0.5;
+            font-family: 'Pinyon Script', cursive;
+            font-size: 18px;
+          }
+        </style>
+    </div>
   </div>
-<% end %>
-
-<%= render "guests/shared/links" %>
+</div>
