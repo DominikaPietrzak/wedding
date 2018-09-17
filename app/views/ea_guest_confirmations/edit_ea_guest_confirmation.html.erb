@@ -1,13 +1,17 @@
 <% @ea_guest_confirmations.each do |confirmation| %>
   <% event = Event.find_by(id: confirmation.event_id) %>
-  <%= "Będę uczestniczyć w wydarzeniu" %>
-  <%= event.name %> </br>
-  <% @ea_guest_confirmation = EaGuestConfirmation.find_by(id: confirmation.id) %>
+  <% @event_attendance = EventAttendance.find_by(event_id:event.id , guest_id: current_guest.id) %>
+  <% @event_attendance_status = EventAttendanceStatus.find_by(id: @event_attendance.event_attendance_status_id) %>
+  <% if @event_attendance_status.eastatus == "yes" %>
+    <%= "Będę uczestniczyć w wydarzeniu" %>
+    <%= event.name %> </br>
+    <% @ea_guest_confirmation = EaGuestConfirmation.find_by(id: confirmation.id) %>
 
-  <%= form_for @ea_guest_confirmation, url: {action: "update_ea_guest_confirmation"}, method: :post do |f| %>
-    <%= f.collection_select :guest_confirmation_status_id, @confirmations ,:id, :status , include_blank: false %>
-    <%= f.hidden_field :guest_id, value: @ea_guest_confirmation.guest_id %>
-    <%= f.hidden_field :ea_guest_confirmation_id, value: @ea_guest_confirmation.id %>
-    <%= f.submit "CONFIRM" %>
-  <% end %>
+    <%= form_for @ea_guest_confirmation, url: {action: "update_ea_guest_confirmation"}, method: :post do |f| %>
+      <%= f.collection_select :guest_confirmation_status_id, @confirmations ,:id, :status , include_blank: false %>
+      <%= f.hidden_field :guest_id, value: @ea_guest_confirmation.guest_id %>
+      <%= f.hidden_field :ea_guest_confirmation_id, value: @ea_guest_confirmation.id %>
+      <%= f.submit "CONFIRM" %>
+      <% end %>
+    <% end %>
 <% end %>
