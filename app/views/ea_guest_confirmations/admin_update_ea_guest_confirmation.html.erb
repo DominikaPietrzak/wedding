@@ -26,7 +26,7 @@
             <% else %>
             <%= form_for @ea_guest_confirmation,  url: {action: "admin_update_ea_guest_confirmation"}, method: :post do |f| %>
               <td><%= f.collection_select :guest_confirmation_status_id, @confirmations ,:id, :status , include_blank: false %></td>
-                  <% f.hidden_field :ea_guest_confirmation_id, value: @ea_guest_confirmation.id %>
+                  <%= f.hidden_field :ea_guest_confirmation_id, value: @ea_guest_confirmation.id %>
               <td><%= f.submit "SAVE" %></td>
             <% end %>
             <% end %>
