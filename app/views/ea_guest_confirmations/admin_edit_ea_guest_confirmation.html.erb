@@ -1,0 +1,36 @@
+<% @guests = Guest.all %>
+<% @events = Event.all %>
+
+<table class = "table">
+  <thead>
+    <tr>
+      <th> Imię </th>
+      <th> Nazwisko </th>
+      <% @events.each do |event| %>
+        <th><%= event.name %></th>
+        <th> Save </th>
+      <% end %>
+    <tr>
+  </thead>
+  <tbody>
+
+      <% @guests.each do |guest| %>
+        <tr>
+          <td><%= guest.name %></td>
+          <td><%= guest.surname %></td>
+          <% @events.each do |event| %>
+            <% @confirmation = EaGuestConfirmation.find_by(guest_id: guest.id, event_id: event.id) %>
+            <% if @confirmation.nil? %>
+              <td> --------- </td>
+              <td><%= "----------" %></td>
+            <% else %>
+            <%= form_for @confirmation,  url: {action: "admin_update_ea_guest_confirmation"}, method: :post do |f| %>
+              <td><%= f.collection_select :guest_confirmation_status_id, @confirmations ,:id, :status , include_blank: false %></td>
+              <td><%= f.submit "SAVE" %></td>
+            <% end %>
+            <% end %>
+          <% end %>
+        </tr>
+      <% end %>
+  </tbody>
+</table>

@@ -44,6 +44,9 @@ Rails.application.routes.draw do
   get "/update_ea_guest_confirmation" => 'ea_guest_confirmations#edit_ea_guest_confirmation'
   post "/update_ea_guest_confirmation" => 'ea_guest_confirmations#update_ea_guest_confirmation'
 
+  get "/admin_update_ea_guest_confirmation" => 'ea_guest_confirmations#admin_edit_ea_guest_confirmation'
+  post "/admin_update_ea_guest_confirmation" => 'ea_guest_confirmations#admin_update_ea_guest_confirmation'
+
   # lywed guest list
   get '/lywed_guest_lists' => 'lywed_guest_lists#index'
 

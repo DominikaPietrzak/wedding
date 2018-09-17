@@ -1,0 +1,17 @@
+1) zrobić widok do zaznaczania przez admina czy dany gość przyjdzie 
+na daną imperezę
+2) zrobić routsy do specjalnych widoków
+3) dodać kontrolery 
+
+4) znaleść jak renderować odpowiednie elementy np. w postaci partiali, żeby
+muc zobaczyć podsumowania, co do guest listy
+5) ostylować licznik czasu
+6) zastanowić się jak do każdego eventu zrobić   osobny licznik
+czasu
+
+7)zrobić mailer który będzie wysyłał maila za każdym razem jak zmieni się 
+status gościa
+8)dodać mai
+9)dodać model whos cost, żeby sprawdzać czy koszt jest pana młodego czy pana
+młodego czy panny młodej
+10) dodać model do sprawdzania jaki kosz należy do jakiego eventu

@@ -1,7 +1,7 @@
 class EaGuestConfirmationsController < ApplicationController
 
-  before_action  :authenticate_guest!
-
+  before_action  :authenticate_guest!, only: [:update_ea_guest_confirmation, :edit_ea_guest_confirmation]
+  before_action :authenticate_admin_user!, only: [:admin_edit_ea_guest_confirmation,  :admin_update_ea_guest_confirmation]
   def update_ea_guest_confirmation
     @confirmations = GuestConfirmationStatus.all
     @ea_guest_confirmations = current_guest.ea_guest_confirmations
@@ -11,6 +11,14 @@ class EaGuestConfirmationsController < ApplicationController
 
   def edit_ea_guest_confirmation
     @ea_guest_confirmations = current_guest.ea_guest_confirmations
+    @confirmations = GuestConfirmationStatus.all
+  end
+
+  def admin_edit_ea_guest_confirmation
+    @confirmations = GuestConfirmationStatus.all
+  end
+
+  def admin_update_ea_guest_confirmation
     @confirmations = GuestConfirmationStatus.all
   end
 
