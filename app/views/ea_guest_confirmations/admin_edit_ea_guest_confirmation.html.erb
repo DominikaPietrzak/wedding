@@ -20,7 +20,10 @@
           <td><%= guest.surname %></td>
           <% @events.each do |event| %>
             <% @ea_guest_confirmation = EaGuestConfirmation.find_by(guest_id: guest.id, event_id: event.id) %>
-            <% if @ea_guest_confirmation.nil? %>
+            <% @event_attendance = EventAttendance.find_by(guest_id: guest.id, event_id: event.id) %>
+            <% @event_attendance_status_no = EventAttendanceStatus.find_by(eastatus: "no").id %>
+
+            <% if @event_attendance.event_attendance_status_id == @event_attendance_status_no %>
               <td> ------------ </td>
               <td> ------------ </td>
             <% else %>
