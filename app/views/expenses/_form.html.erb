@@ -9,7 +9,11 @@
       <tr>
         <th scope = "col"> Nazwa</th>
         <th scope = "col">Ostateczny czas zapłaty </th>
-      <tr>
+        <th scope = "col"> Koszt </th>
+        <th scope = "col"> Ilość </th>
+        <th scope = "col"> Czyj koszt </th>
+        <th scope = "col"> Jakie wydarzenie</th>
+      </tr>
       <tr>
         <td><%= f.text_field :name %></td>
         <td><div class='input-group date' id='datetimepicker3'>
@@ -17,17 +21,14 @@
             <span class="input-group-addon">
                 <span class="glyphicon glyphicon-calendar"></span>
             </span></div> </td>
-      </tr>
-      <tr>
-        <th scope = "col"> Koszt </th>
-        <th scope = "col"> Ilość </th>
-      </tr>
-      <tr>
         <td><%= f.text_field :cost %></td>
         <td><%= f.text_field :amount %></td>
+        <td><%= f.collection_select :newlywed_id, @newlyweds ,:id, :name , include_blank: false %> </td>
+        <td><%= f.collection_select :event_id, @events ,:id, :name , include_blank: false %> </td>
       </tr>
+
       <td><%= f.submit %></td>
-    </tr>
+
     <% end %>
   </tbody>
 </table>

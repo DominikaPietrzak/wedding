@@ -7,6 +7,8 @@ class ExpensesController < ApplicationController
 
   def new
     @expense = current_admin_user.expenses.build
+    @newlyweds = Newlywed.all
+    @events = Event.all
   end
 
   def create
