@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180914183339) do
+ActiveRecord::Schema.define(version: 20180918080303) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -109,6 +109,24 @@ ActiveRecord::Schema.define(version: 20180914183339) do
     t.datetime "updated_at", null: false
     t.bigint "admin_user_id"
     t.index ["admin_user_id"], name: "index_events_on_admin_user_id"
+  end
+
+  create_table "expense_events", force: :cascade do |t|
+    t.bigint "expense_id"
+    t.bigint "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_expense_events_on_event_id"
+    t.index ["expense_id"], name: "index_expense_events_on_expense_id"
+  end
+
+  create_table "expense_whos", force: :cascade do |t|
+    t.bigint "expense_id"
+    t.bigint "newlywed_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["expense_id"], name: "index_expense_whos_on_expense_id"
+    t.index ["newlywed_id"], name: "index_expense_whos_on_newlywed_id"
   end
 
   create_table "expenses", force: :cascade do |t|
@@ -242,6 +260,10 @@ ActiveRecord::Schema.define(version: 20180914183339) do
   add_foreign_key "event_attendances", "events"
   add_foreign_key "event_attendances", "guests"
   add_foreign_key "events", "admin_users"
+  add_foreign_key "expense_events", "events"
+  add_foreign_key "expense_events", "expenses"
+  add_foreign_key "expense_whos", "expenses"
+  add_foreign_key "expense_whos", "newlyweds"
   add_foreign_key "expenses", "admin_users"
   add_foreign_key "guest_adresses", "guests"
   add_foreign_key "guest_lists", "guest_list_statuses"
