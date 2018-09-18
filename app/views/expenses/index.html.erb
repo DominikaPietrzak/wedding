@@ -2,11 +2,14 @@
   <thead>
     <tr>
       <th scope = "col">Nazwa </th>
-      <th scope = "col"> Koszt</th>
-      <th scope = "col"> Ilość </th>
-      <th scope = "col">Czas zapłaty </th>
-      <th scope = "col"> Usuń </th>
-    <tr>
+      <th scope = "col">Koszt</th>
+      <th scope = "col">Ilość </th>
+      <th scope = "col">Czas zapłaty</th>
+      <th scope = "col">Czyj koszt</th>
+      <th scope = "col">Jaki event </th>
+      <th scope = "col">Usuń</th>
+      <th scope = "col">Edytuj</th>
+    </tr>
   <thead>
   <tbody>
     <% @expenses.each do |expense| %>
@@ -15,7 +18,10 @@
         <td><%= expense.cost %></td>
         <td><%= expense.amount %></td>
         <td><%= expense.paydeadline %></td>
+        <td><%= expense.newlywed.name %></td>
+        <td><%= expense.event.name %></td>
         <td><%= link_to 'Destroy',  expense_path(expense), method: :delete  %></td>
+        <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
       </tr>
     <% end %>
   </tbody>

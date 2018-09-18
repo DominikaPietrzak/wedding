@@ -27,10 +27,22 @@ class ExpensesController < ApplicationController
     @expense.destroy
   end
 
+  def edit
+    @expense = Expense.find(params[:id])
+    @newlyweds = Newlywed.all
+    @events = Event.all
+  end
+
+  def update
+    @newlyweds = Newlywed.all
+    @events = Event.all
+    @expense = Expense.find(params[:id])
+    @expense.update_attributes(expenses_params)
+  end
   private
 
   def expenses_params
-    params.require(:expense).permit(:name, :cost, :paydeadline, :amount)
+    params.require(:expense).permit(:name, :cost, :paydeadline, :amount, :event_id, :newlywed_id)
   end
 
 end
