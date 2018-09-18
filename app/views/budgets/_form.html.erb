@@ -11,12 +11,16 @@
   <tbody>
   <% @events.each do |event| %>
     <tr>
+      <% if event.budgets %>
+        nothing new to add
+      <% else %>
       <%=  form_for @budget do |f| %>
         <td><%= event.name %> </td>
         <td><%= f.text_field :min %></td>
         <td><%= f.text_field :max %></td>
             <%= f.hidden_field :event_id, value: event.id %>
         <td><%= f.submit %></td>
+      <% end %>
       <% end %>
     <% end %>
     </tr>
