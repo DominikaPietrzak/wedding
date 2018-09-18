@@ -1,5 +1,8 @@
+
 <% @events.each do |event| %>
   <%= event.name %>
   <%= event.event_date %>
+  <%= link_to 'Destroy',  event_path(event), method: :delete  %>
+  <%= link_to 'Edit',  edit_event_path(event) %>
   </br>
 <% end %>

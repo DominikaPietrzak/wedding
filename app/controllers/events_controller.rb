@@ -16,8 +16,13 @@ class EventsController < ApplicationController
     Event.create_event_attendance(@event,current_admin_user)
   end
 
+  def edit
+    @event = Event.find(params[:id])
+  end
+
   def update
-    
+    @event = Event.find(params[:id])
+    @event.update_attributes(event_params)
   end
 
   def event_params
