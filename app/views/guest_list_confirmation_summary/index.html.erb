@@ -10,15 +10,13 @@
           </tr>
         </thead>
         <tbody>
-
           <% @ea_confirmations = EaGuestConfirmation.where(guest_confirmation_status_id: status.id, event_id: event.id) %>
-
           <% @ea_confirmations.each do |confirmation| %>
-          <% @guest = confirmation.guest %>
-            <tr>
-              <td><%= @guest.name %></td>
-              <td><%= @guest.surname %></td>
-            </tr>
+            <% @guest = confirmation.guest %>
+              <tr>
+                <td><%= @guest.name %></td>
+                <td><%= @guest.surname %></td>
+              </tr>
           <% end %>
         </tbody>
       </table>
