@@ -2,8 +2,8 @@ Rails.application.routes.draw do
 
   get 'cost_list_newlyweds_summary' => 'cost_list_newlyweds_summary#index'
   get 'cost_list_events_summary' => 'cost_list_events_summary#index'
-  get 'guest_list_events_summary/index'
-
+  get 'guest_list_events_summary' => 'guest_list_events_summary#index'
+  get 'guest_list_confirmation_summary' => 'guest_list_confirmation_summary#index'
   get "/event_time_count_down" => 'event_time_count_downs#index'
 
   devise_for :superadmins, ActiveAdmin::Devise.config
