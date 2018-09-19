@@ -1,13 +1,28 @@
+
 <% @events.each do |event| %>
-  <%= event.name %>
-  </br>
-  <% @event_attendances = EventAttendance.where(event_id: event.id, event_attendance_status_id: 2 ) %>
-  <% @event_attendances.each do |eattendance| %>
-    <% guest = Guest.find_by(id: eattendance.guest_id) %>
-      <%= guest.name %>
-      <%= guest.surname %>
-    </br>
-  <% end %>
-    Ilość gości bez osób towarzyszących <%= @event_attendances.count %>
-    </br>
+  <h3><%= event.name %></h3>
+  <table class ="table">
+    <thead>
+      <tr>
+        <th> Imię </th>
+        <th> Nazwisko </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% yes_status = EventAttendanceStatus.where(eastatus: "yes").first %>
+      <% @event_attendances = EventAttendance.where(event_attendance_status_id: yes_status, event_id: event.id) %>
+      <% @event_attendances.each do |eattendance| %>
+        <% guest = Guest.find_by(id: eattendance.guest_id) %>
+        <tr>
+          <td><%= guest.name %></td>
+          <td><%= guest.surname %></td>
+        </tr>
+      <% end %>
+      <tr>
+        <td> Ilość gości bez osób towarzyszących </td>
+        <td> <%= @event_attendances.count %></td>
+      </tr>
+
+    </tbody>
+  </table>
 <% end %>
