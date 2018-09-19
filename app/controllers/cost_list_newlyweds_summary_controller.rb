@@ -1,0 +1,2 @@
+class CostListNewlywedsSummaryController < ApplicationController
+end

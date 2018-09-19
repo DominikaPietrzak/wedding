@@ -1,0 +1,2 @@
+class CostListEventsSummaryController < ApplicationController
+end

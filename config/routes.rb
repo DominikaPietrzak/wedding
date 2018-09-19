@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  get 'guest_list_events_summary/index'
+
   get "/event_time_count_down" => 'event_time_count_downs#index'
 
   devise_for :superadmins, ActiveAdmin::Devise.config
@@ -39,7 +41,7 @@ Rails.application.routes.draw do
   post "/update_accompaning_people" => 'accompaning_people#update_accompaning_people'
 
   #event guest list
-  get "event_guests_lists" => 'event_guests_lists#index'
+  get "guest_list_events_summary" => 'guest_list_events_summary#index'
 
   #event attendance guest confirmations
   get "/update_ea_guest_confirmation" => 'ea_guest_confirmations#edit_ea_guest_confirmation'

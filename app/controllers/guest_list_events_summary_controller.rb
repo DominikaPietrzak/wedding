@@ -1,4 +1,4 @@
-class EventGuestsListsController < ApplicationController
+class GuestListEventsSummaryController < ApplicationController
   def index
     @events = Event.all
     @guests = Guest.all

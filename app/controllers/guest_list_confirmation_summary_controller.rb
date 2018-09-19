@@ -1,0 +1,2 @@
+class GuestListConfirmationSummaryController < ApplicationController
+end

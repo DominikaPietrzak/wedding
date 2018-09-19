@@ -1,0 +1,2 @@
+module GuestListConfirmationSummaryHelper
+end
