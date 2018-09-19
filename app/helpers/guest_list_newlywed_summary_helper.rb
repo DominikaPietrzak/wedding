@@ -1,0 +1,2 @@
+module GuestListNewlywedSummaryHelper
+end

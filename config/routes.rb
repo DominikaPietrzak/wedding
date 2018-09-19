@@ -49,7 +49,7 @@ Rails.application.routes.draw do
   post "/admin_update_ea_guest_confirmation" => 'ea_guest_confirmations#admin_update_ea_guest_confirmation'
 
   # lywed guest list
-  get '/lywed_guest_lists' => 'lywed_guest_lists#index'
+  get '/guest_list_newlywed_summary' => 'guest_list_newlywed_summary#index'
 
   # budget
   get "budget_max_how_much_money_lefts" => 'budget_max_how_much_money_lefts#index'

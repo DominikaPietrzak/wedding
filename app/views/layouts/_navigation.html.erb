@@ -17,11 +17,18 @@
       <%= link_to "Add event attendance", update_event_attendance_path %>
       <%= link_to "Attendance confirmation", admin_update_ea_guest_confirmation_path %>
     </div>
+    <button class="dropdown-btn">Posts
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-container">
+      <%= link_to "All", posts_path %>
+      <%= link_to "New", new_post_path %>
+    </div>
     <button class="dropdown-btn">Lists
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-container">
-      <%= link_to "Lywed guests lists", lywed_guest_lists_path %>
+      <%= link_to "guests lists lywed", guest_list_newlywed_summary_path %>
       <%= link_to "Event guests lists", event_guests_lists_path %>
     </div>
     <button class="dropdown-btn">Guest list
