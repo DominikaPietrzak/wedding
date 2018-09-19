@@ -1,17 +1,25 @@
 <% @newlyweds.each do |newlywed| %>
   <%= newlywed.name %> </br>
-  <% @guest_lists = GuestList.where(newlywed_id: newlywed.id, guest_list_status_id: 2) %>
+  <% @guest_lists = newlywed.guest_lists %>
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope = "col"> Imię </th>
+      <th scope = "col"> Nazwisko </th>
+    </tr>
+  </thead>
+  <tbody>
   <%  @guest_lists.each do |glist| %>
-    <% guest = Guest.find_by(id: glist.guest_id, ) %>
-      <%= guest.name %>
-      <%= guest.surname %>
-    </br>
+    <% guest = Guest.find_by(id: glist.guest_id) %>
+    <tr>
+      <td><%= guest.name %></td>
+      <td><%= guest.surname %></td>
+    </tr>
   <% end %>
-  <%=  @guest_lists.count %>
+  <tr>
+    <td></td>
+    <td> <%=  @guest_lists.count %></td>
+  </tr>
   </br>
-<% end %>
-<p>All guests <p>
-<% @guests.each do |guest| %>
-  <%= guest.name %>
-  <%= guest.surname %></br>
+</table>
 <% end %>
