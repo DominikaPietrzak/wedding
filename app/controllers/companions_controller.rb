@@ -13,7 +13,7 @@ def edit_accompaning_people
 end
 
 def accompaning_people_params
-   params.require(:companion).permit(:companion_number_id)
+   params.require(:companion).permit(:number)
 end
 
 end
