@@ -10,16 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180920123442) do
+ActiveRecord::Schema.define(version: 20180920154448) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "accompaning_persons_numbers", force: :cascade do |t|
-    t.integer "number"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -63,12 +57,18 @@ ActiveRecord::Schema.define(version: 20180920123442) do
     t.index ["event_id"], name: "index_budgets_on_event_id"
   end
 
+  create_table "companion_numbers", force: :cascade do |t|
+    t.integer "number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "companions", force: :cascade do |t|
     t.bigint "guest_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "accompaning_persons_number_id"
-    t.index ["accompaning_persons_number_id"], name: "index_companions_on_accompaning_persons_number_id"
+    t.bigint "companion_number_id"
+    t.index ["companion_number_id"], name: "index_companions_on_companion_number_id"
     t.index ["guest_id"], name: "index_companions_on_guest_id"
   end
 
@@ -274,7 +274,7 @@ ActiveRecord::Schema.define(version: 20180920123442) do
 
   add_foreign_key "budgets", "admin_users"
   add_foreign_key "budgets", "events"
-  add_foreign_key "companions", "accompaning_persons_numbers"
+  add_foreign_key "companions", "companion_numbers"
   add_foreign_key "companions", "guests"
   add_foreign_key "ea_guest_confirmations", "events"
   add_foreign_key "ea_guest_confirmations", "guest_confirmation_statuses"

@@ -13,7 +13,7 @@
           <tr>
             <td> <%= guest.name %></td>
             <td> <%= guest.surname %></td>
-            <td> <%= AccompaningPersonsNumber.find_by(id: guest.companion.accompaning_persons_number_id ).number %> </td>
+            <td> <%= CompanionNumber.find_by(id: guest.companion.accompaning_persons_number_id ).number %> </td>
           <tr>
       <% end %>
     </tbody>

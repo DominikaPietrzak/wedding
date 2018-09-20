@@ -4,7 +4,7 @@ class Guest < ApplicationRecord
   has_one :guest_adress
   has_many :event_attendances
   has_one :companion
-
+  has_one :companion_number, through: :companion
   has_many :ea_guest_confirmations
   belongs_to :guest_list
 
