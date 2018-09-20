@@ -1,0 +1,20 @@
+<% @guests = Guest.all %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope = "col"> Imię </th>
+        <th scope = "col"> Nazwisko </th>
+        <th scope = "col"> Ilość osób towarzyszących </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @guests.each do |guest| %>
+        <% companion = Companion.find_by(guest_id: guest.id) %>
+          <tr>
+            <td> <%= guest.name %></td>
+            <td> <%= guest.surname %></td>
+            <td> <%= AccompaningPersonsNumber.find_by(id: guest.companion.accompaning_persons_number_id ).number %> </td>
+          <tr>
+      <% end %>
+    </tbody>
+  </table>

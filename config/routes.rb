@@ -6,6 +6,11 @@ Rails.application.routes.draw do
   get 'guest_list_events_summary' => 'guest_list_events_summary#index'
   get 'guest_list_confirmation_summary' => 'guest_list_confirmation_summary#index'
   get "/event_time_count_down" => 'event_time_count_downs#index'
+  get "guest_list_events_newlyweds_summary" => "guest_list_events_newlyweds_summary#index"
+
+  get "guest_list_newlywed_with_accompaning_people_summary" =>"guest_list_newlywed_with_accompaning_people_summary#index"
+  get "guest_list_event_with_accompaning_people_summary" =>"guest_list_event_with_accompaning_people_summary#index"
+  get "important_infos" => "important_infos#index"
 
   devise_for :superadmins, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -59,7 +64,5 @@ Rails.application.routes.draw do
   get "budget_max_how_much_money_lefts" => 'budget_max_how_much_money_lefts#index'
   get "budget_min_how_much_money_lefts" => 'budget_min_how_much_money_lefts#index'
 
-  get "important_infos" => "important_infos#index"
 
-  get "guest_list_events_newlyweds_summary" => "guest_list_events_newlyweds_summary#index"
 end

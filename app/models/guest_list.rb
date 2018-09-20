@@ -1,7 +1,8 @@
 class GuestList < ApplicationRecord
-  belongs_to :guests, optional: true
+  has_one :guest
   belongs_to :newlyweds, optional: true
   belongs_to :guest_list_statuses, optional: true
+
 
   def self.create_guest_list_for_added_guest(guest,admin)
     @newlyweds = Newlywed.all

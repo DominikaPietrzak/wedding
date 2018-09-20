@@ -13,10 +13,10 @@
         <tr>
           <td> <%= guest.name %> </td>
           <td> <%= guest.surname %> </td>
-          <% @accompanig_person = AccompaningPerson.find_by(guest_id: guest.id)%>
-          <%= form_for  @accompanig_person, url: {action: "update_accompaning_people"}, method: :post do |f| %>
+          <% @companion = Companion.find_by(guest_id: guest.id)%>
+          <%= form_for  @companion, url: {action: "update_accompaning_people"}, method: :post do |f| %>
               <td><%= f.collection_select :accompaning_persons_number_id, @accompaning_persons_numbers ,:id, :number , include_blank: false %> </td>
-                  <%= f.hidden_field :accompanig_person_id, value: @accompanig_person.id %>
+                  <%= f.hidden_field :companion_id, value: @companion.id %>
               <td><%= f.submit "save" %> </td>
           <% end %>
         </tr>

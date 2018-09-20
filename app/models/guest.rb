@@ -3,9 +3,10 @@ class Guest < ApplicationRecord
   belongs_to :admin_user , optional: true
   has_one :guest_adress
   has_many :event_attendances
-  has_one :accompaning_people
-  has_many :ea_guest_confirmations
+  has_one :companion
 
+  has_many :ea_guest_confirmations
+  belongs_to :guest_list
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
