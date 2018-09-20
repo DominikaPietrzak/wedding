@@ -1,4 +1,4 @@
-class CompanionController < ApplicationController
+class CompanionsController < ApplicationController
 
 def update_accompaning_people
   @guests = Guest.all

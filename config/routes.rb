@@ -44,8 +44,8 @@ Rails.application.routes.draw do
   post "/update_budgets" => 'budgets#update_budgets'
 
   #accompaning person
-  get "/update_accompaning_people" => 'accompaning_people#edit_accompaning_people'
-  post "/update_accompaning_people" => 'accompaning_people#update_accompaning_people'
+  get "/update_accompaning_people" => 'companions#edit_accompaning_people'
+  post "/update_accompaning_people" => 'companions#update_accompaning_people'
 
   #event guest list
   get "guest_list_events_summary" => 'guest_list_events_summary#index'
