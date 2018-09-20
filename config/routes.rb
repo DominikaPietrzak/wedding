@@ -60,4 +60,6 @@ Rails.application.routes.draw do
   get "budget_min_how_much_money_lefts" => 'budget_min_how_much_money_lefts#index'
 
   get "important_infos" => "important_infos#index"
+
+  get "guest_list_events_newlyweds_summary" => "guest_list_events_newlyweds_summary#index"
 end
