@@ -13,13 +13,13 @@
           <tr>
             <td> <%= guest.name %></td>
             <td> <%= guest.surname %></td>
-            <td> <%= CompanionNumber.find_by(id: guest.companion.companion_number_id).number %> </td>
+            <td> <%= companion.number %> </td>
           <tr>
       <% end %>
           <tr>
             <td>Razem </td>
             <td> </td>
-            <td><%= CompanionNumber.sum(:number) %> </td>
+            <td><%= Companion.sum(:number) %> </td>
           </tr>
     </tbody>
   </table>
