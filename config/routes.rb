@@ -59,4 +59,5 @@ Rails.application.routes.draw do
   get "budget_max_how_much_money_lefts" => 'budget_max_how_much_money_lefts#index'
   get "budget_min_how_much_money_lefts" => 'budget_min_how_much_money_lefts#index'
 
+  get "important_infos" => "important_infos#index"
 end
