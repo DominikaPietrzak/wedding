@@ -1,15 +1,15 @@
 require 'rails_helper'
 
 # Specs in this file have access to a helper object that includes
-# the GuestListNewlywedWithAccompaningPeopleHelper. For example:
+# the GuestListNewlywedWithAccompaningPeopleSummaryHelper. For example:
 #
-# describe GuestListNewlywedWithAccompaningPeopleHelper do
+# describe GuestListNewlywedWithAccompaningPeopleSummaryHelper do
 #   describe "string concat" do
 #     it "concats two strings with spaces" do
 #       expect(helper.concat_strings("this","that")).to eq("this that")
 #     end
 #   end
 # end
-RSpec.describe GuestListNewlywedWithAccompaningPeopleHelper, type: :helper do
+RSpec.describe GuestListNewlywedWithAccompaningPeopleSummaryHelper, type: :helper do
   pending "add some examples to (or delete) #{__FILE__}"
 end

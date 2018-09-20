@@ -1,2 +1,0 @@
-class GuestListNewlywedWithAccompaningPeopleController < ApplicationController
-end

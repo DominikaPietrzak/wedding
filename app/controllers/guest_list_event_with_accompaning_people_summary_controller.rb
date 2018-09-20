@@ -1,0 +1,2 @@
+class GuestListEventWithAccompaningPeopleSummaryController < ApplicationController
+end
