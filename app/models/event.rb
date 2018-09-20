@@ -3,6 +3,7 @@ class Event < ApplicationRecord
   belongs_to :admin_user
   has_many :budgets
   has_many :expense
+  has_one :event_adress
 
   def self.create_event_attendance(event,admin)
     @guests = Guest.all

@@ -1,0 +1,27 @@
+<%= form_with(model: event_adress, local: true) do |form| %>
+    <%= form.label :home_number %>
+    <%= form.text_field :home_number, id: :event_adress_home_number %></br>
+
+
+
+    <%= form.label :town %>
+    <%= form.text_field :town, id: :event_adress_town %></br>
+
+
+
+    <%= form.label :code %>
+    <%= form.text_field :code, id: :event_adress_code %></br>
+
+
+
+    <%= form.label :state %>
+    <%= form.text_field :state, id: :event_adress_state %></br>
+
+
+    <%= form.label :event_id %>
+    <%= form.collection_select :event_id, @events ,:id, :name , include_blank: false %></br>
+
+
+    <%= form.submit %>
+
+<% end %>

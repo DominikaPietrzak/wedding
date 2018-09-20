@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Home number:</strong>
+  <%= @event_adress.home_number %>
+</p>
+
+<p>
+  <strong>Town:</strong>
+  <%= @event_adress.town %>
+</p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @event_adress.code %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @event_adress.state %>
+</p>
+
+<p>
+  <strong>Event:</strong>
+  <%= @event_adress.event.name %>
+</p>
+
+<%= link_to 'Edit', edit_event_adress_path(@event_adress) %> |
+<%= link_to 'Back', event_adresses_path %>

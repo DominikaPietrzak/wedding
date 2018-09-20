@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :event_adresses
   get 'cost_list_newlyweds_summary' => 'cost_list_newlyweds_summary#index'
   get 'cost_list_events_summary' => 'cost_list_events_summary#index'
   get 'guest_list_events_summary' => 'guest_list_events_summary#index'
