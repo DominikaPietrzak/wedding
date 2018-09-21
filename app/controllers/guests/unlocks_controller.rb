@@ -5,7 +5,8 @@ class Guests::UnlocksController < Devise::UnlocksController
   # def new
   #   super
   # end
-
+  def index
+  end
   # POST /resource/unlock
   # def create
   #   super

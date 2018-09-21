@@ -8,15 +8,25 @@
 <% if current_admin_user %>
   <div class="sidenav">
 
-    <button class="dropdown-btn">Guests stuff
+    <button class="dropdown-btn">Guests info to change
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-container">
-      <%= link_to "Add Accompaning People", update_accompaning_people_path %>
-      <%= link_to "All adresess", guest_adresses_path %>
+      <%= link_to "Add guest", new_guest_registration_path %>
+      <%= link_to "Add Companions", update_accompaning_people_path %>
       <%= link_to "Add event attendance", update_event_attendance_path %>
       <%= link_to "Attendance confirmation", admin_update_ea_guest_confirmation_path %>
+      <%= link_to "Add to Newlywed guest list" , update_guest_list_path %>
     </div>
+
+    <button class="dropdown-btn">Guest info
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-container">
+      <%= link_to "All guests", guest_lists_path %>
+      <%= link_to "All adresess", guest_adresses_path %>
+    </div>
+
     <button class="dropdown-btn">Posts
       <i class="fa fa-caret-down"></i>
     </button>
@@ -24,19 +34,20 @@
       <%= link_to "All", posts_path %>
       <%= link_to "New", new_post_path %>
     </div>
-    <button class="dropdown-btn">Lists
+
+    <button class="dropdown-btn">Lists Guest
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-container">
       <%= link_to "guests lists lywed", guest_list_newlywed_summary_path %>
       <%= link_to "guest lists events", guest_list_events_summary_path %>
     </div>
-    <button class="dropdown-btn">Guest list
+    <button class="dropdown-btn">Lists Expense
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-container">
-      <%= link_to "add to guest list" , update_guest_list_path %>
-      <%= link_to "add guest", new_guest_registration_path %>
+      <%= link_to "guests lists lywed", guest_list_newlywed_summary_path %>
+      <%= link_to "guest lists events", guest_list_events_summary_path %>
     </div>
     <button class="dropdown-btn">Expense
       <i class="fa fa-caret-down"></i>

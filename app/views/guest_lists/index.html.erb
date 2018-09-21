@@ -1,0 +1,20 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th> Imię </th>
+      <th> Nazwisko </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @guests.each do |guest| %>
+      <tr>
+        <td><%= guest.name %> </td>
+        <td><%= guest.surname %> </td>
+      </tr>
+    <% end %>
+    <tr>
+      <td>Suma gości </td>
+      <td><%= @guests.count %> </td>
+    </tr>
+  </tbody>
+</table>

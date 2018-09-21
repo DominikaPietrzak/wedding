@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get "guest_list_event_with_accompaning_people_summary" =>"guest_list_event_with_accompaning_people_summary#index"
   get "guest_list_companion" => "guest_list_companion#index"
   get "guest_list_newlywed_with_accompaning_people_summary" => "guest_list_newlywed_with_accompaning_people_summary#index"
+  get "gest_lists" => "guest_lists#index"
 
   devise_for :superadmins, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -19,6 +20,7 @@ Rails.application.routes.draw do
   devise_for :guests, controllers: {
       registrations: 'guests/registrations',
     }
+
   resources :guest_lists
   resources :expense_services
   resources :expense_stuffs
