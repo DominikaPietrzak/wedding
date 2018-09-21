@@ -10,9 +10,9 @@ Rails.application.routes.draw do
 
   get "guest_list_newlywed_with_accompaning_people_summary" =>"guest_list_newlywed_with_accompaning_people_summary#index"
   get "guest_list_event_with_accompaning_people_summary" =>"guest_list_event_with_accompaning_people_summary#index"
-  get "important_infos" => "important_infos#index"
   get "guest_list_companion" => "guest_list_companion#index"
   get "guest_list_newlywed_with_accompaning_people_summary" => "guest_list_newlywed_with_accompaning_people_summary#index"
+
   devise_for :superadmins, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :admin_user
