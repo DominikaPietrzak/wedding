@@ -1,5 +1,16 @@
 <% @budgets.each do |budget| %>
-  <% event = Event.find_by(id: budget.event_id) %>
-  <%= event.name %>
-  <%= Budget.how_much_money_left_min(budget) %></br>
-<% end %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nazwa wyadarzenia </th>
+        <th>Środki</th>
+      </tr>
+    <thead>
+      <tbody>
+        <tr>
+          <td><%= budget.event.name %></td>
+          <td><%= Budget.how_much_money_left_min(budget) %></td>
+        </tr>
+      </tbody>
+    </table>
+  <% end %>
