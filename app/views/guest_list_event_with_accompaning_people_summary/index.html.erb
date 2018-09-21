@@ -1,0 +1,32 @@
+<% @guests = Guest.all %>
+<% @events = Event.all %>
+<% @attendances = EventAttendance.all %>
+
+<% @events.each do |event| %>
+  <h3><%= event.name %> </h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope = "col"> Imię </th>
+        <th scope = "col"> Nazwisko </th>
+        <th scope = "col"> Ilość osób z towarzyszami </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% status = EventAttendanceStatus.find_by(eastatus: "yes") %>
+      <% @att = @attendances.where(event_id: event.id, event_attendance_status_id: status) %>
+        <% @att.each do |attendance| %>
+          <tr>
+            <td> <%= attendance.guest.name %></td>
+            <td> <%= attendance.guest.surname %></td>
+            <td> <%= attendance.guest.companion.number %> </td>
+          <tr>
+        <% end %>
+        <tr>
+          <td>Razem </td>
+          <td> </td>
+          <td><%= CompanionNumber.guest_sum_with_companions(event) %> </td>
+        </tr>
+    </tbody>
+  </table>
+<% end %>

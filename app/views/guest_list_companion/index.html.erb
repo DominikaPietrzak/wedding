@@ -9,11 +9,10 @@
     </thead>
     <tbody>
       <% @guests.each do |guest| %>
-        <% companion = Companion.find_by(guest_id: guest.id) %>
           <tr>
             <td> <%= guest.name %></td>
             <td> <%= guest.surname %></td>
-            <td> <%= companion.number %> </td>
+            <td> <%= guest.companion.number %> </td>
           <tr>
       <% end %>
           <tr>
