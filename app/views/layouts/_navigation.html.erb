@@ -35,19 +35,22 @@
       <%= link_to "New", new_post_path %>
     </div>
 
-    <button class="dropdown-btn">Lists Guest
+    <button class="dropdown-btn">Guest Lists
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-container">
-      <%= link_to "guests lists lywed", guest_list_newlywed_summary_path %>
-      <%= link_to "guest lists events", guest_list_events_summary_path %>
+      <%= link_to "Newlyweds", guest_list_newlywed_summary_path %>
+      <%= link_to "Events", guest_list_events_summary_path %>
+      <%= link_to "With Companions" , guest_list_companion_path %>
+      <%= link_to "Newlywed's with companion", guest_list_newlywed_with_accompaning_people_summary_path %>
+      <%= link_to "Events with companion", guest_list_event_with_accompaning_people_summary_path %>
     </div>
-    <button class="dropdown-btn">Lists Expense
+    <button class="dropdown-btn">Cost List
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-container">
-      <%= link_to "guests lists lywed", guest_list_newlywed_summary_path %>
-      <%= link_to "guest lists events", guest_list_events_summary_path %>
+      <%= link_to "Newlyweds", cost_list_newlyweds_summary_path %>
+        <%= link_to "Events", cost_list_events_summary_path %>
     </div>
     <button class="dropdown-btn">Expense
       <i class="fa fa-caret-down"></i>
@@ -63,6 +66,8 @@
       <%= link_to "new budget", new_budget_path %>
       <%= link_to "edit budgets",  update_budgets_path %>
       <%= link_to "all budgets", budgets_path %>
+      <%= link_to "max money left", budget_max_how_much_money_lefts_path %>
+      <%= link_to "min money left", budget_min_how_much_money_lefts_path %>
     </div>
     <button class="dropdown-btn">Events
       <i class="fa fa-caret-down"></i>

@@ -1,7 +1,7 @@
 <% @newlyweds.each do |newlywed| %>
   <%= newlywed.name %> </br>
   <% yes_status_id = GuestListStatus.find_by(status: "yes") %>
-  <% @newlywed_guest_lists = newlywed.newlywed_guest_lists.where(guest_list_status_id: yes_status_id) %>
+  <% @newlywed_guest_lists = NewlywedGuestList.where(guest_list_status_id: yes_status_id, newlywed_id: newlywed.id) %>
   <table class="table">
     <thead>
     <tr>
@@ -19,7 +19,7 @@
   <% end %>
   <tr>
     <td></td>
-    <td> <%=  @guest_lists.count %></td>
+    <td> <%=  @newlywed_guest_lists.count %></td>
   </tr>
   </br>
 </table>
