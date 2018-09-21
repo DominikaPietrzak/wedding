@@ -1,20 +1,31 @@
-<% @guests = Guest.all %>
+
+<% @newlyweds = Newlywed.all %>
+<% @newlyweds.each do |newlywed| %>
+  <h3><%= newlywed.name %> </h3>
   <table class="table">
     <thead>
       <tr>
         <th scope = "col"> Imię </th>
         <th scope = "col"> Nazwisko </th>
-        <th scope = "col"> Ilość osób towarzyszących </th>
+        <th scope = "col"> Ilość osób z towarzyszami </th>
       </tr>
     </thead>
     <tbody>
-      <% @guests.each do |guest| %>
-        <% companion = Companion.find_by(guest_id: guest.id) %>
+      <% yes_status = GuestListStatus.find_by(status: "yes") %>
+      <% @guest_lists = GuestList.where(newlywed_id: newlywed.id, guest_list_status_id: yes_status) %>
+        <% @guest_lists.each do |list| %>
+          <% guest = Guest.find_by(id: list.guest_id) %>
           <tr>
             <td> <%= guest.name %></td>
             <td> <%= guest.surname %></td>
-            <td> <%= CompanionNumber.find_by(id: guest.companion.accompaning_persons_number_id ).number %> </td>
-          <tr>
-      <% end %>
+            <td> <%= guest.companion.number %> </td>
+          </tr>
+        <% end %>
+        <tr>
+          <td>Razem </td>
+          <td> </td>
+          <td><%= CompanionNumber.newlywed_guest_sum_with_companions(newlywed) %> </td>
+        </tr>
     </tbody>
   </table>
+<% end %>
