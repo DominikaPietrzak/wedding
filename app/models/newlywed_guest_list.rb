@@ -1,4 +1,4 @@
-class GuestList < ApplicationRecord
+class NewlywedGuestList < ApplicationRecord
   has_one :guest
   belongs_to :newlyweds, optional: true
   belongs_to :guest_list_statuses, optional: true
@@ -8,7 +8,7 @@ class GuestList < ApplicationRecord
     @newlyweds = Newlywed.all
     guest_list_status = GuestListStatus.find_by(status: "no")
       @newlyweds.each do |newlywed|
-        guest_list = GuestList.new
+        guest_list = NewlywedGuestList.new
         guest_list.newlywed_id = newlywed.id
         guest_list.guest_id = guest.id
         guest_list.guest_list_status_id = guest_list_status.id
@@ -22,7 +22,7 @@ class GuestList < ApplicationRecord
 
     @guests.each do |guest|
       @newlyweds.each do |newlywed|
-        glist = GuestList.new
+        glist = NewlywedGuestList.new
         glist.guest_id = guest.id
         glist.newlywed_id = newlywed.id
         gstatus = GuestListStatus.find_by(status: "no")

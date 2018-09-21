@@ -12,8 +12,8 @@
     </thead>
     <tbody>
       <% yes_status = GuestListStatus.find_by(status: "yes") %>
-      <% @guest_lists = GuestList.where(newlywed_id: newlywed.id, guest_list_status_id: yes_status) %>
-        <% @guest_lists.each do |list| %>
+      <% @newlywed_guest_lists = NewlywedGuestList.where(newlywed_id: newlywed.id, guest_list_status_id: yes_status) %>
+        <% @newlywed_guest_lists.each do |list| %>
           <% guest = Guest.find_by(id: list.guest_id) %>
           <tr>
             <td> <%= guest.name %></td>

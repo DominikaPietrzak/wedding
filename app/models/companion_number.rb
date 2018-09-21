@@ -18,7 +18,7 @@ class CompanionNumber < ApplicationRecord
   def self.newlywed_guest_sum_with_companions(newlywed)
     sum = 0
     yes_status_id = GuestListStatus.find_by(status: "yes").id
-    lists =  GuestList.where(newlywed_id: newlywed.id, guest_list_status_id: yes_status_id)
+    lists =  NewlywedGuestList.where(newlywed_id: newlywed.id, guest_list_status_id: yes_status_id)
     lists.map do |list|
       guests = Guest.where(id: list.guest_id)
       guests.map do |guest|

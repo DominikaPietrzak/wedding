@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180921110058) do
+ActiveRecord::Schema.define(version: 20180921113505) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -179,15 +179,6 @@ ActiveRecord::Schema.define(version: 20180921110058) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "guest_lists", force: :cascade do |t|
-    t.bigint "guest_id"
-    t.bigint "newlywed_id"
-    t.bigint "guest_list_status_id"
-    t.index ["guest_id"], name: "index_guest_lists_on_guest_id"
-    t.index ["guest_list_status_id"], name: "index_guest_lists_on_guest_list_status_id"
-    t.index ["newlywed_id"], name: "index_guest_lists_on_newlywed_id"
-  end
-
   create_table "guests", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -207,6 +198,15 @@ ActiveRecord::Schema.define(version: 20180921110058) do
     t.index ["admin_user_id"], name: "index_guests_on_admin_user_id"
     t.index ["email"], name: "index_guests_on_email", unique: true
     t.index ["reset_password_token"], name: "index_guests_on_reset_password_token", unique: true
+  end
+
+  create_table "newlywed_guest_lists", force: :cascade do |t|
+    t.bigint "guest_id"
+    t.bigint "newlywed_id"
+    t.bigint "guest_list_status_id"
+    t.index ["guest_id"], name: "index_newlywed_guest_lists_on_guest_id"
+    t.index ["guest_list_status_id"], name: "index_newlywed_guest_lists_on_guest_list_status_id"
+    t.index ["newlywed_id"], name: "index_newlywed_guest_lists_on_newlywed_id"
   end
 
   create_table "newlyweds", force: :cascade do |t|
@@ -281,9 +281,9 @@ ActiveRecord::Schema.define(version: 20180921110058) do
   add_foreign_key "expenses", "events"
   add_foreign_key "expenses", "newlyweds"
   add_foreign_key "guest_adresses", "guests"
-  add_foreign_key "guest_lists", "guest_list_statuses"
-  add_foreign_key "guest_lists", "guests"
-  add_foreign_key "guest_lists", "newlyweds"
   add_foreign_key "guests", "admin_users"
+  add_foreign_key "newlywed_guest_lists", "guest_list_statuses"
+  add_foreign_key "newlywed_guest_lists", "guests"
+  add_foreign_key "newlywed_guest_lists", "newlyweds"
   add_foreign_key "posts", "admin_users"
 end
