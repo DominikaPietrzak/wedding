@@ -1,5 +1,16 @@
-<% @budgets.each do |budget| %>
- <%= budget.event.name %>
- <%= budget.min %>
- <%= budget.max %>
-<% end %>
+<table class= "table">
+  <thead>
+    <th>Budget name</th>
+    <th>Min budget </th>
+    <th>Max budget </th>
+  </thead>
+  <tbody>
+    <% @budgets.each do |budget| %>
+    <tr>
+      <td> <%= budget.event.name %> </td>
+      <td> <%= budget.min %> </td>
+      <td><%= budget.max %> </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
