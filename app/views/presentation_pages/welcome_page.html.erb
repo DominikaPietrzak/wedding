@@ -1,3 +1,73 @@
-<div>
+
+
+<div class = "container-welcome" >
   <img src="cherry.jpg" class= "img-responsive"/>
+
+  <div class="center">
+    <div class = "welcome-newlyweds">
+         Ślub Marii & Mariana </br>
+    </div>
+    <div class = "welcome-login-button">
+      <div class = "welcome-login-button-button">
+        <%= link_to 'Zaloguj', new_guest_session_path %>
+      </div>
+    </div>
+  </div>
 </div>
+<style>
+
+.container-welcome {
+  position: relative;
+  max-height: 90vh;
+
+}
+
+.welcome-newlyweds {
+  font-family: 'Italianno', cursive;
+  font-size: 64px;
+}
+
+.welcome-login-button-button{
+  width: 180px;
+  height: 60px;
+  text-align: center;
+  margin: auto;
+  background-color:#c1ac51 ;
+  opacity: 0.90;
+  color: black;
+  font-size: 24px;
+  font-weight: 300;
+  font-family: 'Lato';
+  vertical-align: middle;
+  line-height: 60px;
+  margin-top: 100px;
+}
+
+.welcome-login-button-button a{
+  color: white;
+  text-decoration: none;
+}
+
+.welcome-login-button-button:hover{
+  opacity: 0.70;
+  background-color:#c1ac51 ;
+
+}
+
+.center {
+    position: absolute;
+    left: 0;
+    top: 20%;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    max-width: 100vw;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    -webkit-mask-image: -webkit-gradient(linear, left top,
+    left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+  }
+</style>
