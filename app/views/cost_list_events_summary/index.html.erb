@@ -1,3 +1,4 @@
+<h2> Cost for each event </h2>
 <% @events.each do |event| %>
  <% @event = Event.find_by(id: event.id) %>
  <h3><%= @event.name %></h3>
