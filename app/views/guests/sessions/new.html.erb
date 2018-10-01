@@ -1,13 +1,10 @@
- <link href="https://fonts.googleapis.com/css?family=Pinyon+Script" rel="stylesheet"> <link href="https://fonts.googleapis.com/css?family=Arizonia|Pinyon+Script" rel="stylesheet">
- <div class= "bigimg" >
 
+ <div class= "bigimg" >
   <div class = "container">
     <div class = "row">
       <div class = "col-sm-4">
       </div>
-      <div class = "col-sm-4">
-        <h1> Wedding Mister </br> & </br> Miss </h1>
-      </div>
+
       <div class = "col-sm-4">
       </div>
     </div>
@@ -15,46 +12,83 @@
       <div class = "col-sm-4">
       </div>
       <div class = "col-sm-4">
-        <h2>Zaloguj się</h2>
+        <div class = "form-login">
+           <h2> Zaloguj się </h2>
 
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-          <div class="field">
-            <%= f.label :email %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-          </div>
-
-          <div class="field">
-            <%= f.label :password %><br />
-            <%= f.password_field :password, autocomplete: "off" %>
-          </div>
-
-          <% if devise_mapping.rememberable? -%>
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
             <div class="field">
-              <%= f.check_box :remember_me %>
-              <%= f.label :remember_me %>
+              <%= f.label :email %><br />
+              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
             </div>
-          <% end -%>
 
-          <div class="actions">
-            <%= f.submit "Log in" %>
-          </div>
-        <% end %>
+            <div class="field">
+              <%= f.label :password %><br />
+              <%= f.password_field :password, autocomplete: "off" %>
+            </div>
 
-        <%= render "guests/shared/links" %>
+            <% if devise_mapping.rememberable? -%>
+              <div class="field">
+                <%= f.check_box :remember_me %>
+                <%= f.label :remember_me %>
+              </div>
+            <% end -%>
+
+            <div class="actions">
+              <%= f.submit "Log in" %>
+            </div>
+          <% end %>
+
+          <%= render "guests/shared/links" %>
+        </div>
       </div>
-
       <div class= "col-sm-4">
       </div>
     </div>
 
         <style type="text/css">
           .bigimg {
-            background-image: url('/assets/cherry.jpg');
+            position: relative;
+
             text-align: center;
-            color: #DAA520;
-            opacity: 0.5;
-            font-family: 'Pinyon Script', cursive;
+            color: #0c0c16;
+            font-family: 'Lato';
+            font-weight: 300;
             font-size: 18px;
+            height:100vh;
+          }
+
+          .bigimg:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1;
+            background-image: url('/assets/cherry.jpg');;
+            opacity:0.90;
+          }
+
+
+          .bigimg label {
+            font-weight: 300;
+          }
+
+          .bigimg h2 {
+            font-family: 'Italianno', cursive;
+            font-size: 48px;
+            padding: 24px;
+          }
+
+          .bigimg a{
+            color: #0c0c16;
+            text-decoration: none;
+          }
+          .form-login{
+            position: relative;
+            z-index: 2;
+            padding-top:40%;
+            opacity:0.7;
           }
         </style>
     </div>
