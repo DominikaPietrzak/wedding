@@ -1,5 +1,6 @@
+<h2>Guest for each newlywed  </h2>
 <% @newlyweds.each do |newlywed| %>
-  <%= newlywed.name %> </br>
+  <h3> <%= newlywed.name %> </h3> </br>
   <% yes_status_id = GuestListStatus.find_by(status: "yes") %>
   <% @newlywed_guest_lists = NewlywedGuestList.where(guest_list_status_id: yes_status_id, newlywed_id: newlywed.id) %>
   <table class="table">

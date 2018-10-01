@@ -1,15 +1,15 @@
 <% @guests = Guest.all %>
 <% @events = Event.all %>
 <% @attendances = EventAttendance.all %>
-
+<h2>List of guests with companions </h2>
 <% @events.each do |event| %>
   <h3><%= event.name %> </h3>
   <table class="table">
     <thead>
       <tr>
-        <th scope = "col"> Imię </th>
-        <th scope = "col"> Nazwisko </th>
-        <th scope = "col"> Ilość osób z towarzyszami </th>
+        <th scope = "col"> Name </th>
+        <th scope = "col"> Surname</th>
+        <th scope = "col"> Number of people with companions </th>
       </tr>
     </thead>
     <tbody>
