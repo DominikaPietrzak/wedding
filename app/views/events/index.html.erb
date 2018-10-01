@@ -1,8 +1,17 @@
-
-<% @events.each do |event| %>
-  <%= event.name %>
-  <%= event.event_date %>
-  <%= link_to 'Destroy',  event_path(event), method: :delete  %>
-  <%= link_to 'Edit',  edit_event_path(event) %>
-  </br>
-<% end %>
+<table class = "table">
+  <thead>
+    <tr>
+      <th>Event name</th>
+      <th>Event date</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+  <% @events.each do |event| %>
+  <tr>
+    <td><%= event.name %></td>
+    <td><%= event.event_date %></td>
+    <td><%= link_to 'Destroy',  event_path(event), method: :delete  %></td>
+    <td> <%= link_to 'Edit',  edit_event_path(event) %> </td>
+  </tr>
+  <% end %>
+</table>
