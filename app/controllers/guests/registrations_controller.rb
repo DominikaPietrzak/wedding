@@ -23,12 +23,13 @@ class Guests::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/edit
    def edit
-     super
+     @guest = Guest.find(params[:id])
    end
 
   # PUT /resource
    def update
-     super
+     @guest = Guest.find(params[:id])
+     @guest.update_attributes(guest_params)
    end
 
   # DELETE /resource
@@ -44,6 +45,10 @@ class Guests::RegistrationsController < Devise::RegistrationsController
   # def cancel
   #   super
   # end
+
+  def guest_params
+      params.require(:guest).permit(:name, :surname, :email)
+  end
 
   # protected
 

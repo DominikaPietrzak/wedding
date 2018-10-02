@@ -2,8 +2,8 @@
 <table class="table">
   <thead>
     <tr>
-      <th> Imię </th>
-      <th> Nazwisko </th>
+      <th> Name </th>
+      <th> Surname </th>
       <th> </th>
     </tr>
   </thead>
@@ -12,11 +12,11 @@
       <tr>
         <td><%= guest.name %> </td>
         <td><%= guest.surname %> </td>
-        <td><%= link_to 'Edit', edit_guest_registration_path(guest)%></td>
+        <td><%= link_to 'Edit', edit_guest_list_path(guest)%></td>
       </tr>
     <% end %>
     <tr>
-      <td>Suma gości </td>
+      <td>Guest sum </td>
       <td><%= @guests.count %> </td>
     </tr>
   </tbody>

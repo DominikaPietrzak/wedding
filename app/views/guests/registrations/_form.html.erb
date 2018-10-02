@@ -1,0 +1,14 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+    <%= f.label :email %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %> <br />
+
+    <%= f.label :name %>
+    <%= f.text_field :name %><br />
+
+    <%= f.label :surname %>
+    <%= f.text_field :surname %></br>
+    <%= f.submit "Add guest" %>
+
+<% end %>

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :event_adresses
+  get '/change_guest' => 'guest_lists#edit'
+  post '/change_guest' =>'guest_lists#update'
+
   get 'cost_list_newlyweds_summary' => 'cost_list_newlyweds_summary#index'
   get 'cost_list_events_summary' => 'cost_list_events_summary#index'
   get 'guest_list_events_summary' => 'guest_list_events_summary#index'
@@ -21,6 +23,7 @@ Rails.application.routes.draw do
       registrations: 'guests/registrations',
     }
 
+  resources :event_adresses
   resources :guest_lists
   resources :expense_services
   resources :expense_stuffs
