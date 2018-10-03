@@ -13,12 +13,23 @@ class Guests::RegistrationsController < Devise::RegistrationsController
     @guests = Guests.all
   end
   # POST /resource
+  def new
+    @guest = Guest.new
+  end
+
    def create
      password_length = 6
      password = Devise.friendly_token.first(password_length)
-     @guest = Guest.create!(:email => params[:guest][:email], :password => password, :password_confirmation => password, :name => params[:guest][:name], :surname => params[:guest][:surname], :admin_user_id => current_admin_user.id )
-     Guest.create_event_attendance(@guest,current_admin_user)
-     NewlywedGuestList.create_guest_list_for_added_guest(@guest, current_admin_user)
+
+     @guest = Guest.new(guest_params)
+     @guest.password = password
+     @guest.admin_user_id = current_admin_user.id
+     binding.pry
+     @guest.save
+     if @guest.save
+       Guest.create_event_attendance(@guest,current_admin_user)
+       NewlywedGuestList.create_guest_list_for_added_guest(@guest, current_admin_user)
+    end
    end
 
   # GET /resource/edit
@@ -47,7 +58,7 @@ class Guests::RegistrationsController < Devise::RegistrationsController
   # end
 
   def guest_params
-      params.require(:guest).permit(:name, :surname, :email)
+    params.require(:guest).permit(:name, :surname, :email)
   end
 
   # protected

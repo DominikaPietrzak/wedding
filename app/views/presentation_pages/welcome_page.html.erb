@@ -1,14 +1,17 @@
+
 <div class = "container-welcome" >
   <img src="cherry.jpg" class= "img-responsive"/>
   <div class="center">
     <div class = "welcome-newlyweds">
          Ślub Marii & Mariana </br>
     </div>
+  <%  if !current_admin_user %>
     <div class = "welcome-login-button">
       <div class = "welcome-login-button-button">
-        <%= link_to 'Zaloguj', new_guest_session_path %>
+          <%= link_to 'Zaloguj', new_guest_session_path %>
       </div>
     </div>
+  <% end %>
   </div>
 </div>
 

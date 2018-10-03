@@ -1,18 +1,18 @@
 <table class = "table">
   <thead>
     <tr>
-      <th scope = "col"> Dodaj nową usługę </th>
+      <th scope = "col"> Add new expense </th>
     </tr>
   </thead>
   <tbody>
       <%= form_for @expense do |f| %>
       <tr>
-        <th scope = "col"> Nazwa</th>
-        <th scope = "col">Ostateczny czas zapłaty </th>
-        <th scope = "col"> Koszt </th>
-        <th scope = "col"> Ilość </th>
-        <th scope = "col"> Czyj koszt </th>
-        <th scope = "col"> Jakie wydarzenie</th>
+        <th scope = "col">Name</th>
+        <th scope = "col">Paydedline</th>
+        <th scope = "col">Cost</th>
+        <th scope = "col">Amount</th>
+        <th scope = "col">Whos cost</th>
+        <th scope = "col"> With event</th>
       </tr>
       <tr>
         <td><%= f.text_field :name %></td>

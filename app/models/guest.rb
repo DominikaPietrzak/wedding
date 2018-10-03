@@ -6,7 +6,7 @@ class Guest < ApplicationRecord
   has_one :companion
   has_one :companion_number, through: :companion
   has_many :ea_guest_confirmations
-  belongs_to :guest_list
+
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
