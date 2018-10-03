@@ -10,10 +10,18 @@ class EventsController < ApplicationController
     @event = current_admin_user.events.build
   end
 
+  def destroy
+    @event = Event.find(params[:id])
+    @event.destroy
+  end
+
   def create
     @event = current_admin_user.events.build(event_params)
     @event.save
-    Event.create_event_attendance(@event,current_admin_user)
+    if @event.save
+      Event.create_event_attendance(@event,current_admin_user)
+      EaGuestConfirmation.each_guest_confirmation(@event)
+    end
   end
 
   def edit
