@@ -40,3 +40,14 @@
 
 # GuestListStatus.create([{status: "no"}, {status: "yes"}])
 # GuestConfirmationStatus.create([{status: "no"}, {status: "yes"}, {status: "maybe"}])
+
+#Postcreate
+
+
+(1..10).times do | |
+ Post.create({[{
+   title: Faker::Lorem.sentence(3),
+   content: Faker::Lorem.sentence(20),
+   admin_user_id: 1,
+   }])
+end

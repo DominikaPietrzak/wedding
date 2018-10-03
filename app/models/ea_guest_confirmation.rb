@@ -19,10 +19,11 @@ class EaGuestConfirmation < ApplicationRecord
     @guests = Guest.all
     no_status = GuestConfirmationStatus.find_by(status:"no").id
     @guests.each do |guest|
-      confirmation = EaConfirmation.new
+      confirmation = EaGuestConfirmation.new
       confirmation.guest_id = guest.id
-      confirmation.guest_confirmation_status_id = guest.id
+      confirmation.guest_confirmation_status_id = no_status
       confirmation.event_id = event.id
+      confirmation.save
     end
   end
 
