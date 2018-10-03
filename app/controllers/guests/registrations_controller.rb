@@ -30,6 +30,7 @@ class Guests::RegistrationsController < Devise::RegistrationsController
        Guest.create_event_attendance(@guest,current_admin_user)
        NewlywedGuestList.create_guest_list_for_added_guest(@guest, current_admin_user)
        Companion.create_accompaning_person_for_added_guest(@guest, current_admin_user)
+       EaGuestConfirmation.guest_confirmation(@guest)
     end
    end
 
