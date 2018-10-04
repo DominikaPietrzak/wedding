@@ -12,7 +12,10 @@
   <% @events.each do |event| %>
     <tr>
       <% if event.budget %>
-        <span> for  <%= event.name %> butget was added </span> </br>
+        <td><%= event.name %> </td>
+        <td> was added </td>
+        <td> was added </td>
+        <td> was added </td>
       <% else %>
       <%=  form_for @budget do |f| %>
         <td><%= event.name %> </td>
