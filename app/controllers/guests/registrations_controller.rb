@@ -24,7 +24,6 @@ class Guests::RegistrationsController < Devise::RegistrationsController
      @guest = Guest.new(guest_params)
      @guest.password = password
      @guest.admin_user_id = current_admin_user.id
-     binding.pry
      @guest.save
      if @guest.save
        Guest.create_event_attendance(@guest,current_admin_user)

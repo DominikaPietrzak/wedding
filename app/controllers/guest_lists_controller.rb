@@ -11,7 +11,6 @@ class GuestListsController < ApplicationController
   end
 
   def update
-    binding.pry
     @guest = Guest.find(params[:id])
     @guest.update_attributes(guest_params)
   end
