@@ -78,6 +78,7 @@
       <%= link_to "adresses", event_adresses_path %>
       <%= link_to "new adress", new_event_adress_path %>
     </div>
+    <%= link_to('Logout', destroy_admin_user_session_path, method: :delete) %> 
   </div>
 <% end %>
 <script>
