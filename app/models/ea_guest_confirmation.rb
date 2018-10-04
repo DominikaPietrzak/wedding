@@ -35,7 +35,7 @@ class EaGuestConfirmation < ApplicationRecord
         confirmation = EaGuestConfirmation.new
         confirmation.guest_id = guest.id
         confirmation.guest_confirmation_status_id = no_status
-        confiramtion.event_id = event.id
+        confirmation.event_id = event.id
         confirmation.save
       end
     end
