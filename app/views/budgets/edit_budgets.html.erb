@@ -13,13 +13,21 @@
   <% @events.each do |event| %>
     <tr>
       <% @budget = Budget.find_by(event_id: event.id) %>
-
-      <%=  form_for @budget,  url: {action: "update_budgets"}, method: :post do |f| %>
-        <td><%= event.name %> </td>
-        <td><%= f.text_field :min %></td>
-        <td><%= f.text_field :max %></td>
-            <%= f.hidden_field :event_id, value: event.id %>
-        <td><%= f.submit %></td>
+      <% if @budget.nil? %>
+      <tr>
+        <td><%= event.name %></td>
+        <td> not added </td>
+        <td> not added </td>
+        <td> not added </td>
+      </tr>
+      <% else %>
+          <%= form_for @budget,  url: {action: "update_budgets"}, method: :post do |f| %>
+            <td><%= event.name %> </td>
+            <td><%= f.text_field :min %></td>
+            <td><%= f.text_field :max %></td>
+              <%= f.hidden_field :event_id, value: event.id %>
+          <td><%= f.submit %></td>
+          <% end %>
       <% end %>
     <% end %>
     </tr>

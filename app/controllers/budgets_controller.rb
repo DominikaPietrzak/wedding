@@ -16,6 +16,10 @@ class BudgetsController < ApplicationController
     @budget.save
   end
 
+  def destroy
+    @budget = Budget.find(params[:id])
+    @budget.destroy
+  end
 
   def edit_budgets
 
