@@ -30,7 +30,7 @@ class EaGuestConfirmation < ApplicationRecord
   def self.event_and_guest_confirmation
     @guests = Guest.all
     @events = Event.all
-    no_status = GuestConfirmationStatus.find_by(status:"no").id
+    no_status = GuestConfirmationStatus.find_by(eastatus:"no").id
     @guests.each do |guest|
       @events.each do |event|
         confirmation = EaGuestConfirmation.new
