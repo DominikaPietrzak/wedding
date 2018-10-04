@@ -8,42 +8,42 @@
 #AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
 
 # seed db with Guest
-10.times do
-  Guest.create([{
-    name: Faker::Name.first_name,
-    surname: Faker::Name.last_name,
-    email: Faker::Internet.email,
-    password: Faker::Internet.password(8),
-    admin_user_id: 1
-    }])
-end
-#
-# #seed db with events
-Event.create([{
-    name: "wesele",
-    event_date: Faker::Time.between(DateTime.now - 1, DateTime.now),
-    admin_user_id: 1
-  }])
-#
-Event.create([{
-  name: "ślub",
-  event_date: Faker::Time.between(DateTime.now - 1, DateTime.now),
-  admin_user_id: 1
-  }])
+# 10.times do
+#   Guest.create([{
+#     name: Faker::Name.first_name,
+#     surname: Faker::Name.last_name,
+#     email: Faker::Internet.email,
+#     password: Faker::Internet.password(8),
+#     admin_user_id: 1
+#     }])
+# end
+# #
+# # #seed db with events
+# Event.create([{
+#     name: "wesele",
+#     event_date: Faker::Time.between(DateTime.now - 1, DateTime.now),
+#     admin_user_id: 1
+#   }])
+# #
+# Event.create([{
+#   name: "ślub",
+#   event_date: Faker::Time.between(DateTime.now - 1, DateTime.now),
+#   admin_user_id: 1
+#   }])
 
 EventAttendanceStatus.create([{status: 'no'}, {status: 'yes'}])
-Newlywed.create([{name: 'bride'}, {name: 'groom'}, {name: 'both'}])
-
-GuestListStatus.create([{status: "no"}, {status: "yes"}])
-GuestConfirmationStatus.create([{status: "no"}, {status: "yes"}, {status: "maybe"}])
-
-
-
-#Postcreate
-10.times do
- Post.create([{
-   title: Faker::Lorem.sentence(3),
-   content: Faker::Lorem.sentence(20),
-   admin_user_id: 1,
-   }])
-end
+# Newlywed.create([{name: 'bride'}, {name: 'groom'}, {name: 'both'}])
+#
+# GuestListStatus.create([{status: "no"}, {status: "yes"}])
+# GuestConfirmationStatus.create([{status: "no"}, {status: "yes"}, {status: "maybe"}])
+#
+#
+#
+# #Postcreate
+# 10.times do
+#  Post.create([{
+#    title: Faker::Lorem.sentence(3),
+#    content: Faker::Lorem.sentence(20),
+#    admin_user_id: 1,
+#    }])
+# end
