@@ -3,10 +3,6 @@ class EventAttendance < ApplicationRecord
   belongs_to :event
   belongs_to :admin_user
 
-  has_one :event_attendance_status
-
-
-
   def self.create_event_attendance_for_event_and_guest
     @guests = Guest.all
     @events = Event.all
