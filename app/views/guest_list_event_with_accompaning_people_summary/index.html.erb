@@ -9,7 +9,7 @@
       <tr>
         <th scope = "col"> Name </th>
         <th scope = "col"> Surname</th>
-        <th scope = "col"> Number of people with companions </th>
+        <th scope = "col"> Guest with companions </th>
       </tr>
     </thead>
     <tbody>
@@ -23,7 +23,7 @@
           <tr>
         <% end %>
         <tr>
-          <td>Razem </td>
+          <td>Summary </td>
           <td> </td>
           <td><%= CompanionNumber.event_guest_sum_with_companions(event) %> </td>
         </tr>
