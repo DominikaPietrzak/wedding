@@ -12,8 +12,11 @@ namespace :before_application_start do
 
   desc "TODO"
   task create_confirmation: :environment do
-    EaGuestConfirmation.event_and_guest_confirmation
+    EaGuestConfirmation.create_event_and_guest_confirmation
   end
 
-
+  desc "TODO"
+  task create_newlywed_guest_list: :environment do
+    NewlywedGuestList.create_guest_lists
+  end
 end
