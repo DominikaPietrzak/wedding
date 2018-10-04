@@ -24,7 +24,7 @@ class ExpensesController < ApplicationController
 
   def destroy
     @expense = Expense.find(params[:id])
-    @expense.destroy
+    @expense.delete
     redirect_back fallback_location: expenses_url
   end
 
