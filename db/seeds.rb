@@ -31,11 +31,11 @@
 #   admin_user_id: 1
 #   }])
 
-EventAttendanceStatus.create([{eastatus: 'no'}, {eastatus: 'yes'}])
+#EventAttendanceStatus.create([{eastatus: 'no'}, {eastatus: 'yes'}])
 # Newlywed.create([{name: 'bride'}, {name: 'groom'}, {name: 'both'}])
 #
 # GuestListStatus.create([{status: "no"}, {status: "yes"}])
-# GuestConfirmationStatus.create([{status: "no"}, {status: "yes"}, {status: "maybe"}])
+ GuestConfirmationStatus.create([{status: "no"}, {status: "yes"}, {status: "maybe"}])
 #
 #
 #
