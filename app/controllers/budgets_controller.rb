@@ -8,6 +8,7 @@ class BudgetsController < ApplicationController
 
   def new
     @budget = current_admin_user.budgets.build
+    @events = Event.all
   end
 
   def create
