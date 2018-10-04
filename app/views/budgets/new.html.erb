@@ -1,2 +1,29 @@
 <h2> New budget </h2>
-<%= render 'form' %>
+<% @events = Event.all %>
+<table class = "table" >
+  <thead>
+    <tr>
+      <th scope = "col"> Event name </th>
+      <th scope = "col"> Minimal Buget </th>
+      <th scope = "col"> Max Budget </th>
+      <th scope = "col"> Save </th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @events.each do |event| %>
+    <tr>
+      <% if event.budget %>
+        <span> for  <%= event.name %> butget was added </span> </br>
+      <% else %>
+      <%=  form_for @budget do |f| %>
+        <td><%= event.name %> </td>
+        <td><%= f.text_field :min %></td>
+        <td><%= f.text_field :max %></td>
+            <%= f.hidden_field :event_id, value: event.id %>
+        <td><%= f.submit %></td>
+      <% end %>
+      <% end %>
+    <% end %>
+    </tr>
+  </tbody>
+</table>

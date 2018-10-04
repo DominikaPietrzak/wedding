@@ -1,7 +1,7 @@
 class Event < ApplicationRecord
   has_many :event_attendances, dependent: :destroy
   belongs_to :admin_user
-  has_many :budgets
+  has_one :budget
   has_many :expense
   has_one :event_adress
 
