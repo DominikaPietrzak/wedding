@@ -31,15 +31,15 @@ Event.create([{
   admin_user_id: 1
   }])
 
-EventAttendanceStatus.create([{eastatus: 'no'}, {eastatus: 'yes'}])
+EventAttendanceStatus.create([{status: 'no'}, {status: 'yes'}])
 Newlywed.create([{name: 'bride'}, {name: 'groom'}, {name: 'both'}])
 
- GuestListStatus.create([{status: "no"}, {status: "yes"}])
- GuestConfirmationStatus.create([{status: "no"}, {status: "yes"}, {status: "maybe"}])
+GuestListStatus.create([{status: "no"}, {status: "yes"}])
+GuestConfirmationStatus.create([{status: "no"}, {status: "yes"}, {status: "maybe"}])
+
+
 
 #Postcreate
-
-
 10.times do
  Post.create([{
    title: Faker::Lorem.sentence(3),
