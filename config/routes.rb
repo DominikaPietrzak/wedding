@@ -25,8 +25,6 @@ Rails.application.routes.draw do
 
   resources :event_adresses
   resources :guest_lists
-  resources :expense_services
-  resources :expense_stuffs
   resources :events
   resources :event_attendances
   resources :budgets

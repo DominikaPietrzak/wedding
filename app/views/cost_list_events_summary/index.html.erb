@@ -5,24 +5,23 @@
  <table class="table">
    <thead>
      <tr>
-       <th scope = "col"> Nazwa </th>
-       <th scope = "col"> Cena </th>
-       <th scope = "col"> Ilość </th>
-       <th scope = "col"> Suma </th>
+       <th scope = "col"> Name </th>
+       <th scope = "col"> Cost </th>
+       <th scope = "col"> Amount </th>
+       <th scope = "col"> Summary </th>
      </tr>
    </thead>
    <tbody>
      <% @event.expense.each do |expense| %>
-     <tr>
-       <td> <%= expense.name %> </td>
-       <td> <%= expense.cost %> </td>
-       <td> <%= expense.amount %> </td>
-       <td> <%= (expense.amount * expense.cost).round(2) %> </td>
-     </tr>
-
+       <tr>
+         <td> <%= expense.name %> </td>
+         <td> <%= expense.cost %> </td>
+         <td> <%= expense.amount %> </td>
+         <td> <%= (expense.amount * expense.cost).round(2) %> </td>
+       </tr>
      <% end %>
      <tr>
-       <td> Podsumowanie </td>
+       <td> Summary </td>
        <td> </td>
        <td> </td>
        <td> <%= Expense.where(event_id: @event.id).sum("cost * amount") %> </td>
