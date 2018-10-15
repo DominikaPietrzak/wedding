@@ -22,7 +22,7 @@ class ExpensesController < ApplicationController
     flash[:success] = "Expense updated"
   end
 
-  def destroy
+  def delete
     @expense = Expense.find(params[:id])
     @expense.destroy
     redirect_back fallback_location: expenses_url
