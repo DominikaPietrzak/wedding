@@ -21,7 +21,7 @@
         <td><%= expense.paydeadline %></td>
         <td><%= expense.newlywed.name %></td>
         <td><%= expense.event.name %></td>
-        <td><%= link_to "delete", {:controller => :expenses, :action => 'destroy', :id => expense.id }, :method => :delete %></td>
+        <td><%= button_to "delete", {:controller => :expenses, :action => 'destroy', :id => expense.id }, :method => :delete %></td>
         <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
       </tr>
     <% end %>
