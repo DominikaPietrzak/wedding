@@ -21,7 +21,7 @@
         <td><%= expense.paydeadline %></td>
         <td><%= expense.newlywed.name %></td>
         <td><%= expense.event.name %></td>
-        <td><%= link_to 'Destroy',  expense,  method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy',  expense_path,  method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
       </tr>
     <% end %>

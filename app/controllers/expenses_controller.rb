@@ -30,7 +30,6 @@ class ExpensesController < ApplicationController
   end
 
   def destroy
-    binding.pry
     @expense = Expense.find(params[:id])
     @expense.destroy
     redirect_back fallback_location: expenses_url
