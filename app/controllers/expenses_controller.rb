@@ -23,13 +23,14 @@ class ExpensesController < ApplicationController
   end
 
   def delete
-    binding.pry
+
     @expense = Expense.find(params[:id])
     @expense.destroy
     redirect_back fallback_location: expenses_url
   end
 
   def destroy
+    binding.pry
     @expense = Expense.find(params[:id])
     @expense.destroy
     redirect_back fallback_location: expenses_url
