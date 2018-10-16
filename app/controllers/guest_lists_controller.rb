@@ -1,14 +1,13 @@
 class GuestListsController < ApplicationController
 
   before_action :authenticate_admin_user!
-  
+
   def index
     @guests = Guest.all
   end
 
   def edit
     guest = Guest.find(params[:id])
-
   end
 
   def update
@@ -16,7 +15,10 @@ class GuestListsController < ApplicationController
     @guest.update_attributes(guest_params)
   end
 
-
+  def destroy
+    @guest = Guest.find(params[:id])
+    @guest.destroy
+  end
 
   def guest_params
       params.require(:guest).permit(:name, :surname, :email)

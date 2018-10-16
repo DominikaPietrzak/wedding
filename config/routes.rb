@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
   get '/change_guest' => 'guest_lists#edit'
-  post '/change_guest' =>'guest_lists#update'
+  post '/change_guest' => 'guest_lists#update'
+  delete '/change_guest' => 'guest_lists#destroy'
 
   get 'cost_list_newlyweds_summary' => 'cost_list_newlyweds_summary#index'
   get 'cost_list_events_summary' => 'cost_list_events_summary#index'

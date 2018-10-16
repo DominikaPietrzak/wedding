@@ -1,5 +1,5 @@
 class NewlywedGuestList < ApplicationRecord
-  has_one :guest
+  belongs_to :guest, dependent: :destroy
   belongs_to :newlyweds, optional: true
   belongs_to :guest_list_statuses, optional: true
 
