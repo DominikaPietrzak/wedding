@@ -11,7 +11,7 @@
   <tr>
     <td><%= event.name %></td>
     <td><%= event.event_date %></td>
-    <td><%= link_to 'Destroy',  event_path(event), method: :destroy  %></td>
+    <td><%= button_to "delete", {:controller => :events, :action => 'destroy', :id => event.id }, :method => :delete %></td>
     <td> <%= link_to 'Edit',  edit_event_path(event) %> </td>
   </tr>
   <% end %>
