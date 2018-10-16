@@ -28,6 +28,12 @@ class ExpensesController < ApplicationController
     redirect_back fallback_location: expenses_url
   end
 
+  def destroy
+    @expense = Expense.find(params[:id])
+    @expense.destroy
+    redirect_back fallback_location: expenses_url
+  end
+
   def edit
     @expense = Expense.find(params[:id])
     @newlyweds = Newlywed.all
@@ -43,7 +49,7 @@ class ExpensesController < ApplicationController
   private
 
   def expenses_params
-    params.require(:expense).permit(:name, :cost, :paydeadline, :amount, :event_id, :newlywed_id)
+    params.require(:expense).permit(:name, :cost, :paydeadline, :amount, :event_id, :newlywed_id, :expense)
   end
 
 end
